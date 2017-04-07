@@ -14,6 +14,8 @@ public class Handler extends Thread {
 	Game game;
 	Player player;
 
+	int turn = 0;
+
 	public Handler(Socket socket) {
 		this.socket = socket;
 	}
@@ -28,7 +30,7 @@ public class Handler extends Thread {
 			if (firstMessage.getMessageType().equals(MessageType.PLAYER_CREATE)) {
 				game = Server.createGame();
 				player = new Player(game.getGameCode(), firstMessage.getUserName(), objectOutputStream);
-				sendRoomCode(game);
+				sendRoomCode();
 			}
 			if (firstMessage.getMessageType().equals(MessageType.PLAYER_JOIN)) {
 				for (int x = 0; x < Server.games.size(); x++) {
@@ -40,17 +42,21 @@ public class Handler extends Thread {
 			}
 			game.getPlayers().add(player);
 			System.out.println("Player " + player.getUserName() + " - CONNECTED to game " + game.getGameCode());
-			sendPlayers(game);
+			sendPlayers();
 			while (socket.isConnected()) {
 				Message message = (Message) objectInputStream.readObject();
 				if (message != null) {
 					switch (message.getMessageType()) {
 					case PLAYER_STARTGAME:
-						startGame(findGame(message.getRoomCode()));
-						sendCards(findGame(message.getRoomCode()));
+						startGame();
+						Thread.sleep(500);
+						sendCards();
+						Thread.sleep(3000);
+						game.setTurn();
+						sendBlack();
+						askPicks();
 						break;
 					}
-
 				}
 			}
 		} catch (Exception e) {
@@ -58,7 +64,7 @@ public class Handler extends Thread {
 				System.out
 						.println("Player " + player.getUserName() + " - DISCONNECTED from game " + game.getGameCode());
 				game.getPlayers().remove(player);
-				sendPlayers(game);
+				sendPlayers();
 			} catch (Exception x) {
 				System.out.println(x);
 			}
@@ -69,17 +75,14 @@ public class Handler extends Thread {
 		}
 	}
 
-	private Game findGame(String gameCode) {
-		Game game = null;
-		for (int x = 0; x < Server.games.size(); x++) {
-			if (Server.games.get(x).getGameCode().equals(gameCode)) {
-				game = Server.games.get(x);
-			}
-		}
-		return game;
-	}
+	/*
+	 * private Game findGame(String gameCode) { Game game = null; for (int x =
+	 * 0; x < Server.games.size(); x++) { if
+	 * (Server.games.get(x).getGameCode().equals(gameCode)) { game =
+	 * Server.games.get(x); } } return game; }
+	 */
 
-	private synchronized void sendRoomCode(Game game) {
+	private synchronized void sendRoomCode() {
 		Message message = new Message();
 		message.setMessageType(MessageType.SERVER_SENDROOMCODE);
 		message.setRoomCode(game.getGameCode());
@@ -92,7 +95,7 @@ public class Handler extends Thread {
 		}
 	}
 
-	private synchronized void sendPlayers(Game game) {
+	private synchronized void sendPlayers() {
 		for (int x = 0; x < game.getPlayers().size(); x++) {
 			Message message = new Message();
 			message.setPlayers(game.getPlayers());
@@ -107,7 +110,7 @@ public class Handler extends Thread {
 		}
 	}
 
-	private synchronized void startGame(Game game) {
+	private synchronized void startGame() {
 		for (int x = 0; x < game.getPlayers().size(); x++) {
 			Message message = new Message();
 			message.setMessageType(MessageType.SERVER_STARTGAME);
@@ -121,7 +124,7 @@ public class Handler extends Thread {
 		}
 	}
 
-	private void sendCards(Game game) {
+	private void sendCards() {
 		for (int x = 0; x < game.getPlayers().size(); x++) {
 			int toSend = 10 - game.getPlayers().get(x).getCards().size();
 			Message message = new Message();
@@ -137,6 +140,37 @@ public class Handler extends Thread {
 				game.getPlayers().get(x).getObjectOutputStream().flush();
 			} catch (Exception e) {
 				System.out.println(e);
+			}
+		}
+	}
+
+	private void sendBlack() {
+		Message message = new Message();
+		message.setMessageType(MessageType.SERVER_SENDBLACK);
+		Card card = game.getBlackCard();
+		message.setBlackCard(card);
+		turn = game.getNextTurn();
+		try {
+			game.getPlayers().get(turn).getObjectOutputStream().writeObject(message);
+			game.getPlayers().get(turn).getObjectOutputStream().reset();
+			game.getPlayers().get(turn).getObjectOutputStream().flush();
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+	}
+
+	private void askPicks() {
+		for (int x = 0; x < game.getPlayers().size(); x++) {
+			if (x != turn) {
+				Message message = new Message();
+				message.setMessageType(MessageType.SERVER_ASKPICKS);
+				try {
+					game.getPlayers().get(x).getObjectOutputStream().writeObject(message);
+					game.getPlayers().get(x).getObjectOutputStream().reset();
+					game.getPlayers().get(x).getObjectOutputStream().flush();
+				} catch (Exception e) {
+					System.out.println(e);
+				}
 			}
 		}
 	}

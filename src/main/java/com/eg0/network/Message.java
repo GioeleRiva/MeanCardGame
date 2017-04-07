@@ -12,6 +12,7 @@ public class Message implements Serializable {
 	private String roomCode;
 	private ArrayList<Player> players;
 	private ArrayList<Card> whiteCards;
+	private Card blackCard;
 
 	public MessageType getMessageType() {
 		return messageType;
@@ -51,6 +52,14 @@ public class Message implements Serializable {
 
 	public void setWhiteCards(ArrayList<Card> whiteCards) {
 		this.whiteCards = whiteCards;
+	}
+
+	public Card getBlackCard() {
+		return blackCard;
+	}
+
+	public void setBlackCard(Card blackCard) {
+		this.blackCard = blackCard;
 	}
 
 }

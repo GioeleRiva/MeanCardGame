@@ -65,7 +65,7 @@ public class Button extends Pane {
 			}
 		};
 		task.setOnSucceeded(change -> {
-			Main.changeScreen(nextScreen);
+			Main.changeScreen(nextScreen, false);
 		});
 		Thread thread = new Thread(task);
 		thread.setDaemon(true);

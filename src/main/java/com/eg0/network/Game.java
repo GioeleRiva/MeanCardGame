@@ -35,12 +35,19 @@ public class Game {
 		return gameCode;
 	}
 
-	public int getTurn() {
+	public int getNextTurn() {
+		if (turn < players.size() - 1) {
+			turn++;
+		} else {
+			turn = 0;
+		}
 		return turn;
 	}
 
-	public void setTurn(int turn) {
-		this.turn = turn;
+	public void setTurn() {
+		Collections.shuffle(players);
+		Collections.shuffle(players);
+		turn = 0;
 	}
 
 	public synchronized Card getWhiteCard() {
@@ -68,8 +75,10 @@ public class Game {
 		Collections.shuffle(whiteCards);
 	}
 
-	public synchronized ArrayList<Card> getBlackCards() {
-		return blackCards;
+	public synchronized Card getBlackCard() {
+		Card card = blackCards.get(0);
+		blackCards.remove(0);
+		return card;
 	}
 
 	public void setBlackCards() throws Exception {

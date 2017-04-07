@@ -31,6 +31,7 @@ public class Main extends Application {
 	public static JoinScreen joinScreen;
 	public static RoomScreen roomScreen;
 	public static GameScreen gameScreen;
+	public static PickScreen pickScreen;
 
 	public static boolean somethingSelected = false;
 
@@ -44,6 +45,8 @@ public class Main extends Application {
 	public void start(Stage stage) {
 		stackPane = new StackPane();
 		stackPane.getStylesheets().add("/Style.css");
+		pickScreen = new PickScreen();
+		stackPane.getChildren().add(pickScreen);
 		gameScreen = new GameScreen();
 		stackPane.getChildren().add(gameScreen);
 		roomScreen = new RoomScreen();
@@ -61,7 +64,7 @@ public class Main extends Application {
 		stage.show();
 	}
 
-	public static void changeScreen(String screen) {
+	public static void changeScreen(String screen, boolean czar) {
 		Task<Void> task = new Task<Void>() {
 			@Override
 			protected Void call() throws Exception {
@@ -71,10 +74,17 @@ public class Main extends Application {
 		task.setOnSucceeded(change -> {
 			Pane black = new Pane();
 			black.setPrefSize(screenWidth, screenHeight);
-			black.setStyle("-fx-background-color: black");
+			FadeTransition fade1 = new FadeTransition();
+			if (!czar) {
+				black.setId("black");
+				fade1.setDuration(Duration.millis(500));
+			} else {
+				black.setId("blackczar");
+				fade1.setDuration(Duration.millis(1500));
+			}
 			black.setMouseTransparent(true);
 			stackPane.getChildren().add(stackPane.getChildren().size(), black);
-			FadeTransition fade1 = new FadeTransition(Duration.millis(500));
+
 			fade1.setFromValue(0);
 			fade1.setToValue(1);
 			fade1.setNode(black);
@@ -99,7 +109,12 @@ public class Main extends Application {
 					gameScreen.toFront();
 				}
 				black.toFront();
-				FadeTransition fade2 = new FadeTransition(Duration.millis(500));
+				FadeTransition fade2 = new FadeTransition();
+				if (!czar) {
+					fade2.setDuration(Duration.millis(500));
+				} else {
+					fade2.setDuration(Duration.millis(1500));
+				}
 				fade2.setFromValue(1);
 				fade2.setToValue(0);
 				fade2.setNode(black);

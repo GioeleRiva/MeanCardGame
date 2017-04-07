@@ -60,7 +60,7 @@ public class PlayScreen extends Pane {
 								System.out.println(e);
 							}
 							create.setDisable(false);
-							Main.changeScreen("roomScreen");
+							Main.changeScreen("roomScreen", false);
 						});
 						scaleTransition3.play();
 					});

@@ -72,7 +72,7 @@ public class GameScreen extends Pane {
 						}
 					});
 					PathTransition util = new PathTransition();
-					util.setDuration(Duration.millis(100 + 100 * x));
+					util.setDuration(Duration.millis(200 + 200 * x));
 					Path utilPath = new Path();
 					utilPath.getElements().add(new MoveTo(cardWidth / 2, cardHeight / 2 + screenHeight * 0.9));
 					utilPath.getElements().add(new LineTo(cardWidth / 2, cardHeight / 2 + screenHeight * 0.9));

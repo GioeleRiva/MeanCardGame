@@ -3,6 +3,16 @@
     src: url('Helvetica.ttf');
 }
 
+#black{
+	-fx-background-color: black;
+}
+
+#blackczar{
+	-fx-background-color: black;
+	-fx-background-image: url("CzarImage.png");
+	-fx-background-size: contain;
+}
+
 #background{
 	-fx-background-color: #191919;
 }

@@ -111,7 +111,7 @@ public class JoinScreen extends Pane {
 						scaleTransition3.setByY(-0.05);
 						scaleTransition3.setOnFinished(done -> {
 							play.setDisable(false);
-							Main.changeScreen("roomScreen");
+							Main.changeScreen("roomScreen", false);
 							Thread thread = new Thread(new Listener("localhost", 15000, Main.playerName, false,
 									((Label) whiteCard.getChildren().get(0)).getText()));
 							thread.start();

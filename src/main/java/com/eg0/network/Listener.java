@@ -60,20 +60,23 @@ public class Listener implements Runnable {
 						Main.roomScreen.playButton();
 						break;
 					case SERVER_STARTGAME:
-						Main.changeScreen("gameScreen");
+						Main.changeScreen("gameScreen", false);
 						break;
 					case SERVER_SENDCARDS:
-						for (int i = 0; i < message.getWhiteCards().size(); i++) {
-							System.out.println(message.getWhiteCards().get(i).getText());
-						}
 						Main.gameScreen.drawCards(message.getWhiteCards());
+						break;
+					case SERVER_SENDBLACK:
+						Main.changeScreen("pickScreen", true);
+						break;
+					case SERVER_ASKPICKS:
+						System.out.println("I need to send my picks");
 						break;
 					}
 				}
 			}
 		} catch (Exception e) {
 			System.out.println(e + "2");
-			Main.changeScreen("homeScreen");
+			Main.changeScreen("homeScreen", false);
 			try {
 				socket.close();
 			} catch (Exception x) {

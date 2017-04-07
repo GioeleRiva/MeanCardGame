@@ -56,6 +56,10 @@
 	-fx-text-fill: black;
 }
 
+#whitecardselected{
+	-fx-background-color: green;
+}
+
 #whitecard:disabled{
 	-fx-opacity: 1.0;	
 }

@@ -69,7 +69,7 @@ public class Listener implements Runnable {
 						Main.changeScreen("pickScreen", true);
 						break;
 					case SERVER_ASKPICKS:
-						System.out.println("I need to send my picks");
+						Main.gameScreen.askPicks(message.getBlackCard().getCardsRequired());
 						break;
 					}
 				}

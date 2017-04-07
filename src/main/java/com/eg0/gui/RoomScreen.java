@@ -9,6 +9,8 @@ import com.eg0.network.Player;
 import javafx.animation.FadeTransition;
 import javafx.animation.ScaleTransition;
 import javafx.concurrent.Task;
+import javafx.concurrent.WorkerStateEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
@@ -28,6 +30,8 @@ public class RoomScreen extends Pane {
 
 	boolean codeVisible = false;
 	boolean playVisible = false;
+	
+	Pane pane = this;
 
 	public RoomScreen() {
 		this.setPrefSize(screenWidth, screenHeight);
@@ -159,6 +163,26 @@ public class RoomScreen extends Pane {
 				return cards;
 			}
 		};
+		task.setOnSucceeded(new EventHandler<WorkerStateEvent>() {
+			
+			@Override
+			public void handle(WorkerStateEvent event) {
+				for (int x = 0; x < pane.getChildren().size(); x++) {
+					if (pane.getChildren().get(x).equals("whitecard")) {
+						pane.getChildren().remove(x);
+						x--;
+					}
+				}
+				for (int x = 0; x < task.getValue().size(); x++) {
+					int temp1 = x % 2;
+					int temp2 = ((int) x / 2);
+					task.getValue().get(x)
+							.setLayoutX(screenHeight * 0.1 + screenHeight * 0.1 * temp2 + screenHeight * 0.7 * temp1);
+					task.getValue().get(x).setLayoutY(screenHeight * 0.2 + screenHeight * 0.15 * temp2);
+					pane.getChildren().add(task.getValue().get(x));
+				}
+			}
+		});/*
 		task.setOnSucceeded(draw -> {
 			for (int x = 0; x < this.getChildren().size(); x++) {
 				if (this.getChildren().get(x).equals("whitecard")) {
@@ -174,7 +198,7 @@ public class RoomScreen extends Pane {
 				task.getValue().get(x).setLayoutY(screenHeight * 0.2 + screenHeight * 0.15 * temp2);
 				this.getChildren().add(task.getValue().get(x));
 			}
-		});
+		});*/
 		Thread thread = new Thread(task);
 		thread.setDaemon(true);
 		thread.start();

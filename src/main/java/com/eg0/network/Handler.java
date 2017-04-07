@@ -164,6 +164,7 @@ public class Handler extends Thread {
 			if (x != turn) {
 				Message message = new Message();
 				message.setMessageType(MessageType.SERVER_ASKPICKS);
+				message.setBlackCard(game.getCurrentBlack());
 				try {
 					game.getPlayers().get(x).getObjectOutputStream().writeObject(message);
 					game.getPlayers().get(x).getObjectOutputStream().reset();

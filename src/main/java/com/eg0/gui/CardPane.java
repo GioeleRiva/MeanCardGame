@@ -35,20 +35,4 @@ public class CardPane extends Pane {
 		this.getChildren().add(cardText);
 	}
 
-	public double getCenterX() {
-		return cardWidth / 2;
-	}
-
-	public double getCenterY() {
-		return cardHeight / 2;
-	}
-
-	public double width() {
-		return cardWidth;
-	}
-
-	public double height() {
-		return cardHeight;
-	}
-
 }

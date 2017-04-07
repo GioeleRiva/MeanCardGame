@@ -16,6 +16,7 @@ public class Game {
 	private int turn;
 	private static ArrayList<Card> whiteCards = new ArrayList<>();
 	private static ArrayList<Card> blackCards = new ArrayList<>();
+	private static Card currentBlack;
 
 	public Game(String gameCode) {
 		this.gameCode = gameCode;
@@ -77,6 +78,7 @@ public class Game {
 
 	public synchronized Card getBlackCard() {
 		Card card = blackCards.get(0);
+		currentBlack = card;
 		blackCards.remove(0);
 		return card;
 	}
@@ -99,6 +101,10 @@ public class Game {
 		Collections.shuffle(blackCards);
 		Collections.shuffle(blackCards);
 		Collections.shuffle(blackCards);
+	}
+
+	public Card getCurrentBlack() {
+		return currentBlack;
 	}
 
 }

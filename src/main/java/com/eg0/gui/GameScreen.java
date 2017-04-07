@@ -1,12 +1,15 @@
 package com.eg0.gui;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import com.eg0.network.Card;
 
 import javafx.animation.PathTransition;
+import javafx.animation.ScaleTransition;
 import javafx.concurrent.Task;
 import javafx.event.EventHandler;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.LineTo;
@@ -24,6 +27,10 @@ public class GameScreen extends Pane {
 	double cardBorder = (cardWidth * 13) / 126;
 	double cardTextSize = (cardWidth * 9) / 100;
 
+	Button send;
+
+	private ArrayList<Integer> selectedCards = new ArrayList<>();
+
 	public GameScreen() {
 		this.setPrefSize(screenWidth, screenHeight);
 		this.setId("background");
@@ -32,10 +39,14 @@ public class GameScreen extends Pane {
 		backgroundImage.setLayoutX(screenWidth - screenHeight);
 		backgroundImage.setId("backgroundimage");
 		this.getChildren().add(backgroundImage);
+		send = new Button("Send picks.", null);
+		send.setLayoutX(screenWidth - screenHeight * 0.05 - cardWidth);
+		send.setLayoutY(screenHeight * 0.05);
+		this.getChildren().add(send);
+		send.setVisible(false);
 	}
 
 	public void drawCards(ArrayList<Card> whiteCards) {
-		int old = Main.whiteCards.size();
 		Main.whiteCards = whiteCards;
 		Task<ArrayList<CardPane>> task = new Task<ArrayList<CardPane>>() {
 			@Override
@@ -45,7 +56,7 @@ public class GameScreen extends Pane {
 					CardPane card = new CardPane(whiteCards.get(x));
 					card.setCache(true);
 					double temp = (screenWidth - cardWidth - screenHeight * 0.1) / 9;
-					card.setLayoutX(screenHeight * 0.05 + temp * old + temp * x);
+					card.setLayoutX(screenHeight * 0.05 + temp * x);
 					card.setLayoutY(screenHeight * 0.7);
 					Delta dragDelta = new Delta();
 					double originx = card.getLayoutX();
@@ -95,10 +106,106 @@ public class GameScreen extends Pane {
 			}
 		};
 		task.setOnSucceeded(draw -> {
+			for (int y = 0; y < this.getChildren().size(); y++) {
+				if (this.getChildren().get(y).getId().equals("whitecard")
+						|| this.getChildren().get(y).getId().equals("whitecardselected")) {
+					this.getChildren().remove(y);
+					y--;
+				}
+			}
 			for (int x = 0; x < task.getValue().size(); x++) {
 				this.getChildren().add(task.getValue().get(x));
 			}
 		});
+		Thread thread = new Thread(task);
+		thread.setDaemon(true);
+		thread.start();
+	}
+
+	public void askPicks(int picksNum) {
+		Task<Void> task = new Task<Void>() {
+			@Override
+			protected Void call() throws Exception {
+				return null;
+			}
+		};
+		task.setOnSucceeded(ask -> {
+			send.setVisible(true);
+			send.setOnMouseClicked(startSend -> {
+				ScaleTransition scaleTransition = new ScaleTransition(Duration.millis(50), send);
+				scaleTransition.setByX(-0.1);
+				scaleTransition.setByY(-0.1);
+				scaleTransition.setNode(send);
+				scaleTransition.setOnFinished(done -> {
+					ScaleTransition scaleDoneTransition = new ScaleTransition(Duration.millis(50), send);
+					scaleDoneTransition.setByX(0.1);
+					scaleDoneTransition.setByY(0.1);
+					scaleDoneTransition.setNode(send);
+					scaleDoneTransition.play();
+				});
+				scaleTransition.play();
+				if (/* selectedCards.size() > 0 && */ selectedCards.size() < picksNum) {
+					for (int i = 0; i < this.getChildren().size(); i++) {
+						if (this.getChildren().get(i).getId().equals("whitecard")) {
+							CardPane card = (CardPane) this.getChildren().get(i);
+							card.setOnMouseClicked(clicked -> {
+								int temp = 0;
+								for (int x = 0; x < Main.whiteCards.size(); x++) {
+									if (Main.whiteCards.get(x).getText()
+											.equals(((Label) card.getChildren().get(0)).getText())) {
+										temp = x;
+									}
+								}
+								if (selectedCards.contains(temp)) {
+									for (int x = 0; x < selectedCards.size(); x++) {
+										if (selectedCards.get(x).equals(temp)) {
+											selectedCards.remove(x);
+										}
+									}
+									card.setId("whitecard");
+								} else {
+									if (selectedCards.size() < picksNum) {
+										selectedCards.add(temp);
+										card.setId("whitecardselected");
+									}
+								}
+							});
+						}
+					}
+				}
+				if (selectedCards.size() == picksNum) {
+					// TODO Listener.sendWhites();
+					ArrayList<Card> cards = new ArrayList<>();
+					if (picksNum == 1) {
+						Card card = Main.whiteCards.get(selectedCards.get(0));
+						cards.add(card);
+						System.out.println(selectedCards.get(0));
+						int temp = selectedCards.get(0);
+						Main.whiteCards.remove(temp);
+					}
+					if (picksNum == 2) {
+						Card card1 = Main.whiteCards.get(selectedCards.get(0));
+						cards.add(card1);
+						Card card2 = Main.whiteCards.get(selectedCards.get(1));
+						cards.add(card2);
+						Collections.sort(selectedCards);
+						for (int x = 0; x < selectedCards.size(); x++) {
+							int temp1 = selectedCards.get(x);
+							Main.whiteCards.remove(temp1);
+							for (int y = x + 1; y < selectedCards.size(); y++) {
+								int temp2 = selectedCards.get(y) - 1;
+								selectedCards.remove(y);
+								selectedCards.add(y, temp2);
+							}
+						}
+					}
+					send.setVisible(false);
+					drawCards(Main.whiteCards);
+				}
+
+			});
+		});
+
 		Thread thread = new Thread(task);
 		thread.setDaemon(true);
 		thread.start();

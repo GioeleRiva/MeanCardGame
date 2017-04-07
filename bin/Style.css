@@ -1,0 +1,80 @@
+@font-face{
+    font-family: 'Helvetica';
+    src: url('Helvetica.ttf');
+}
+
+#background{
+	-fx-background-color: #191919;
+}
+
+#backgroundimage{
+	-fx-background-image: url("BackgroundImage.png");
+	-fx-background-size: cover;
+}
+
+#splashimage{
+	-fx-background-color: #191919;
+	-fx-background-image: url("SplashImage.png");
+	-fx-background-size: contain;
+}
+
+#button{
+	-fx-background-color: black;	
+}
+
+#buttontext{
+	-fx-font-family: "Helvetica";
+	-fx-font-weight: bold;
+	-fx-text-fill: white;
+}
+
+#button:disabled{
+	-fx-opacity: 1.0;	
+}
+
+#buttontext:disabled{
+	-fx-opacity: 1.0;	
+}
+
+#whitecard{
+	-fx-background-color: white;
+}
+
+#whitecardtext{
+	-fx-font-family: "Helvetica";
+	-fx-font-weight: bold;
+	-fx-text-fill: black;
+}
+
+#whitecard:disabled{
+	-fx-opacity: 1.0;	
+}
+
+#whitecardtext:disabled{
+	-fx-opacity: 1.0;	
+}
+
+#blackcard{
+	-fx-background-color: black;
+}
+
+#blackcardtext{
+	-fx-font-family: "Helvetica";
+	-fx-font-weight: bold;
+	-fx-text-fill: white;
+}
+
+#blackcard:disabled{
+	-fx-opacity: 1.0;
+}
+
+#blackcardtext:disabled{
+	-fx-opacity: 1.0;
+}
+
+#key{
+	-fx-font-family: "Helvetica";
+	-fx-font-weight: bold;
+	-fx-text-fill: white;
+	-fx-background-color: black;
+}

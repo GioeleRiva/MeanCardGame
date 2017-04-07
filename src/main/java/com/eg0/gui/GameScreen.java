@@ -144,7 +144,7 @@ public class GameScreen extends Pane {
 					scaleDoneTransition.play();
 				});
 				scaleTransition.play();
-				if (/* selectedCards.size() > 0 && */ selectedCards.size() < picksNum) {
+				if (selectedCards.size() < picksNum) {
 					for (int i = 0; i < this.getChildren().size(); i++) {
 						if (this.getChildren().get(i).getId().equals("whitecard")) {
 							CardPane card = (CardPane) this.getChildren().get(i);

@@ -108,6 +108,9 @@ public class Main extends Application {
 				if (screen.equals("gameScreen")) {
 					gameScreen.toFront();
 				}
+				if (screen.equals("pickScreen")) {
+					pickScreen.toFront();
+				}
 				black.toFront();
 				FadeTransition fade2 = new FadeTransition();
 				if (!czar) {
@@ -129,4 +132,5 @@ public class Main extends Application {
 		thread.setDaemon(true);
 		thread.start();
 	}
+
 }

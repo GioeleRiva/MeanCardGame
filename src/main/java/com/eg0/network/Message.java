@@ -13,6 +13,7 @@ public class Message implements Serializable {
 	private ArrayList<Player> players;
 	private ArrayList<Card> whiteCards;
 	private Card blackCard;
+	private ArrayList<ArrayList<Card>> picks;
 
 	public MessageType getMessageType() {
 		return messageType;
@@ -60,6 +61,14 @@ public class Message implements Serializable {
 
 	public void setBlackCard(Card blackCard) {
 		this.blackCard = blackCard;
+	}
+
+	public ArrayList<ArrayList<Card>> getPicks() {
+		return picks;
+	}
+
+	public void setPicks(ArrayList<ArrayList<Card>> picks) {
+		this.picks = picks;
 	}
 
 }

@@ -5,6 +5,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.net.Socket;
+import java.util.ArrayList;
 
 import com.eg0.gui.Main;
 
@@ -66,10 +67,16 @@ public class Listener implements Runnable {
 						Main.gameScreen.drawCards(message.getWhiteCards());
 						break;
 					case SERVER_SENDBLACK:
+						Main.pickScreen.setBlack(message.getBlackCard());
 						Main.changeScreen("pickScreen", true);
 						break;
 					case SERVER_ASKPICKS:
 						Main.gameScreen.askPicks(message.getBlackCard().getCardsRequired());
+						break;
+					case SERVER_SENDPICKS:
+						Main.pickScreen.setBlack(message.getBlackCard());
+						Main.pickScreen.setPicks(message.getPicks());
+						Main.changeScreen("pickScreen", false);
 						break;
 					}
 				}
@@ -114,7 +121,18 @@ public class Listener implements Runnable {
 	public static void startGame() {
 		Message message = new Message();
 		message.setMessageType(MessageType.PLAYER_STARTGAME);
-		message.setRoomCode(Main.roomCode);
+		try {
+			objectOutputStream.writeObject(message);
+			objectOutputStream.flush();
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+	}
+
+	public static void sendPicks(ArrayList<Card> cards) {
+		Message message = new Message();
+		message.setMessageType(MessageType.PLAYER_SENDPICKS);
+		message.setWhiteCards(cards);
 		try {
 			objectOutputStream.writeObject(message);
 			objectOutputStream.flush();

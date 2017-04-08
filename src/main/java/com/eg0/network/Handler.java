@@ -56,6 +56,13 @@ public class Handler extends Thread {
 						sendBlack();
 						askPicks();
 						break;
+					case PLAYER_SENDPICKS:
+						game.getPicks().add(message.getWhiteCards());
+						game.getPickPlayers().add(player);
+						if (game.getPicks().size() == game.getPlayers().size() - 1) {
+							sendPicks(game.getPicks());
+						}
+						break;
 					}
 				}
 			}
@@ -74,13 +81,6 @@ public class Handler extends Thread {
 			return;
 		}
 	}
-
-	/*
-	 * private Game findGame(String gameCode) { Game game = null; for (int x =
-	 * 0; x < Server.games.size(); x++) { if
-	 * (Server.games.get(x).getGameCode().equals(gameCode)) { game =
-	 * Server.games.get(x); } } return game; }
-	 */
 
 	private synchronized void sendRoomCode() {
 		Message message = new Message();
@@ -172,6 +172,22 @@ public class Handler extends Thread {
 				} catch (Exception e) {
 					System.out.println(e);
 				}
+			}
+		}
+	}
+
+	private void sendPicks(ArrayList<ArrayList<Card>> picks) {
+		for (int x = 0; x < game.getPlayers().size(); x++) {
+			Message message = new Message();
+			message.setMessageType(MessageType.SERVER_SENDPICKS);
+			message.setPicks(picks);
+			message.setBlackCard(game.getCurrentBlack());
+			try {
+				game.getPlayers().get(x).getObjectOutputStream().writeObject(message);
+				game.getPlayers().get(x).getObjectOutputStream().reset();
+				game.getPlayers().get(x).getObjectOutputStream().flush();
+			} catch (Exception e) {
+				System.out.println(e);
 			}
 		}
 	}

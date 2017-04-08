@@ -17,6 +17,8 @@ public class Game {
 	private static ArrayList<Card> whiteCards = new ArrayList<>();
 	private static ArrayList<Card> blackCards = new ArrayList<>();
 	private static Card currentBlack;
+	private ArrayList<ArrayList<Card>> picks = new ArrayList<>();
+	private ArrayList<Player> pickPlayers = new ArrayList<>();
 
 	public Game(String gameCode) {
 		this.gameCode = gameCode;
@@ -105,6 +107,14 @@ public class Game {
 
 	public Card getCurrentBlack() {
 		return currentBlack;
+	}
+
+	public ArrayList<ArrayList<Card>> getPicks() {
+		return picks;
+	}
+
+	public ArrayList<Player> getPickPlayers() {
+		return pickPlayers;
 	}
 
 }

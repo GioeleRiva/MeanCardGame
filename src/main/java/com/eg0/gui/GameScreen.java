@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import com.eg0.network.Card;
+import com.eg0.network.Listener;
 
 import javafx.animation.PathTransition;
 import javafx.animation.ScaleTransition;
@@ -174,7 +175,6 @@ public class GameScreen extends Pane {
 					}
 				}
 				if (selectedCards.size() == picksNum) {
-					// TODO Listener.sendWhites();
 					ArrayList<Card> cards = new ArrayList<>();
 					if (picksNum == 1) {
 						Card card = Main.whiteCards.get(selectedCards.get(0));
@@ -198,11 +198,30 @@ public class GameScreen extends Pane {
 								selectedCards.add(y, temp2);
 							}
 						}
+						if (picksNum == 3) {
+							Card card3 = Main.whiteCards.get(selectedCards.get(0));
+							cards.add(card3);
+							Card card4 = Main.whiteCards.get(selectedCards.get(1));
+							cards.add(card4);
+							Card card5 = Main.whiteCards.get(selectedCards.get(1));
+							cards.add(card5);
+							Collections.sort(selectedCards);
+							for (int x = 0; x < selectedCards.size(); x++) {
+								int temp1 = selectedCards.get(x);
+								Main.whiteCards.remove(temp1);
+								for (int y = x + 1; y < selectedCards.size(); y++) {
+									int temp2 = selectedCards.get(y) - 1;
+									selectedCards.remove(y);
+									selectedCards.add(y, temp2);
+								}
+							}
+						}
 					}
+					Listener.sendPicks(cards);
+					selectedCards.clear();
 					send.setVisible(false);
 					drawCards(Main.whiteCards);
 				}
-
 			});
 		});
 

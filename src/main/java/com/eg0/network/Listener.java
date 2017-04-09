@@ -67,16 +67,25 @@ public class Listener implements Runnable {
 						Main.gameScreen.drawCards(message.getWhiteCards());
 						break;
 					case SERVER_SENDBLACK:
-						Main.pickScreen.setBlack(message.getBlackCard());
 						Main.changeScreen("pickScreen", true);
+						Main.pickScreen.setBlack(message.getBlackCard());
 						break;
 					case SERVER_ASKPICKS:
 						Main.gameScreen.askPicks(message.getBlackCard().getCardsRequired());
 						break;
 					case SERVER_SENDPICKS:
-						Main.pickScreen.setBlack(message.getBlackCard());
-						Main.pickScreen.setPicks(message.getPicks());
+						// TODO fix
 						Main.changeScreen("pickScreen", false);
+						Main.pickScreen.setPicks(message.getPicks());
+						Main.pickScreen.drawPicks(message.getBlackCard(), true);
+						System.out.println(message.getBlackCard().getText());
+						break;
+					case SERVER_ASKWINNER:
+						Main.pickScreen.setPicks(message.getPicks());
+						Main.pickScreen.drawPicks(message.getBlackCard(), true);
+						Thread.sleep(500);
+						Main.pickScreen.askWinner();
+						System.out.println(message.getBlackCard().getText());
 						break;
 					}
 				}
@@ -133,6 +142,18 @@ public class Listener implements Runnable {
 		Message message = new Message();
 		message.setMessageType(MessageType.PLAYER_SENDPICKS);
 		message.setWhiteCards(cards);
+		try {
+			objectOutputStream.writeObject(message);
+			objectOutputStream.flush();
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+	}
+
+	public static void sendWinner(int pick) {
+		Message message = new Message();
+		message.setMessageType(MessageType.PLAYER_SENDWINNER);
+		message.setWinner(pick);
 		try {
 			objectOutputStream.writeObject(message);
 			objectOutputStream.flush();

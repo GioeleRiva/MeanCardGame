@@ -92,3 +92,13 @@
 	-fx-text-fill: white;
 	-fx-background-color: black;
 }
+
+#backbutton{
+	-fx-background-image: url("Back.png");
+	-fx-background-size: contain;
+}
+
+#forwardbutton{
+	-fx-background-image: url("Forward.png");
+	-fx-background-size: contain;
+}

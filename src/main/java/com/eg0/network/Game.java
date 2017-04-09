@@ -13,7 +13,7 @@ public class Game {
 
 	private ArrayList<Player> players = new ArrayList<>();
 	private String gameCode;
-	private int turn;
+	private int turn = 0;
 	private static ArrayList<Card> whiteCards = new ArrayList<>();
 	private static ArrayList<Card> blackCards = new ArrayList<>();
 	private static Card currentBlack;
@@ -38,19 +38,25 @@ public class Game {
 		return gameCode;
 	}
 
-	public int getNextTurn() {
-		if (turn < players.size() - 1) {
-			turn++;
+	public void nextTurn() {
+		if (getTurn() < players.size() - 1) {
+			setTurn(getTurn() + 1);
 		} else {
-			turn = 0;
+			setTurn(0);
 		}
+	}
+
+	public int getTurn() {
 		return turn;
 	}
 
-	public void setTurn() {
+	public void setTurn(int turn) {
+		this.turn = turn;
+	}
+
+	public void shufflePlayers() {
 		Collections.shuffle(players);
 		Collections.shuffle(players);
-		turn = 0;
 	}
 
 	public synchronized Card getWhiteCard() {
@@ -78,7 +84,7 @@ public class Game {
 		Collections.shuffle(whiteCards);
 	}
 
-	public synchronized Card getBlackCard() {
+	public synchronized Card getNextBlackCard() {
 		Card card = blackCards.get(0);
 		currentBlack = card;
 		blackCards.remove(0);

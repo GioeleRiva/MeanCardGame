@@ -12,10 +12,12 @@ public class Player implements Serializable {
 	private String userName;
 	private transient ObjectOutputStream objectOutputStream;
 	private ArrayList<Card> cards = new ArrayList<>();
+	private int wins;
 
-	public Player(String gameCode, String userName, ObjectOutputStream objectOutputStream) {
+	public Player(String gameCode, String userName, int wins, ObjectOutputStream objectOutputStream) {
 		this.gameCode = gameCode;
 		this.userName = userName;
+		this.wins = wins;
 		this.objectOutputStream = objectOutputStream;
 	}
 
@@ -25,6 +27,14 @@ public class Player implements Serializable {
 
 	public String getUserName() {
 		return userName;
+	}
+
+	public int getWins() {
+		return wins;
+	}
+
+	public void addWin() {
+		wins++;
 	}
 
 	public ObjectOutputStream getObjectOutputStream() {

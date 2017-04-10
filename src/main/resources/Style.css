@@ -47,7 +47,9 @@
 }
 
 #whitecard{
-	-fx-background-color: white;
+	-fx-background-color: transparent;
+	-fx-background-image: url("WhiteCard.png");
+	-fx-background-size: contain;
 }
 
 #whitecardtext{
@@ -57,7 +59,9 @@
 }
 
 #whitecardselected{
-	-fx-background-color: green;
+	-fx-background-color: transparent;
+	-fx-background-image: url("WhiteSelected.png");
+	-fx-background-size: contain;
 }
 
 #whitecard:disabled{

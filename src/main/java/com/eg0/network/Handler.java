@@ -53,7 +53,7 @@ public class Handler extends Thread {
 						}
 						System.out.println(temp0);
 						startGame();
-						Thread.sleep(500);
+						Thread.sleep(1000);
 						sendCards();
 						Thread.sleep(3000);
 						sendBlack();
@@ -157,7 +157,7 @@ public class Handler extends Thread {
 	private void sendCards() {
 		for (int x = 0; x < game.getPlayers().size(); x++) {
 			int toSend = 10 - game.getPlayers().get(x).getCards().size();
-			if (toSend != 0) {
+			//if (toSend != 0) {
 				Message message = new Message();
 				message.setMessageType(MessageType.SERVER_SENDCARDS);
 				ArrayList<Card> cards = new ArrayList<>();
@@ -179,7 +179,7 @@ public class Handler extends Thread {
 					System.out.println(e);
 				}
 				System.out.println(temp0);
-			}
+			//}
 		}
 	}
 

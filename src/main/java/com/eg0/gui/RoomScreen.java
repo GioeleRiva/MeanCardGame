@@ -39,7 +39,7 @@ public class RoomScreen extends Pane {
 		backgroundImage.setLayoutX(screenWidth - screenHeight);
 		backgroundImage.setId("backgroundimage");
 		this.getChildren().add(backgroundImage);
-		Card bCard = new Card("Players: _______ .", "black", 0);
+		Card bCard = new Card("Players: ____.", "black", 0);
 		CardPane blackCard = new CardPane(bCard);
 		blackCard.setLayoutX(screenHeight * 0.05);
 		blackCard.setLayoutY(screenHeight * 0.05);

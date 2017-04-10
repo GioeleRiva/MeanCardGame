@@ -38,21 +38,21 @@ public class PickScreen extends Pane {
 		this.getChildren().add(backgroundImage);
 		back = new Pane();
 		back.setPrefSize(cardBorder * 3, cardBorder * 3);
-		back.setLayoutX(screenHeight * 0.025);
-		back.setLayoutY(screenHeight - screenHeight * 0.025 - cardBorder * 3);
+		back.setLayoutX(screenHeight * 0.05);
+		back.setLayoutY(screenHeight - screenHeight * 0.05 - cardBorder * 3);
 		back.setId("backbutton");
 		back.setVisible(false);
 		this.getChildren().add(back);
 		forward = new Pane();
 		forward.setPrefSize(cardBorder * 3, cardBorder * 3);
-		forward.setLayoutX(screenWidth - screenHeight * 0.025 - cardBorder * 3);
-		forward.setLayoutY(screenHeight - screenHeight * 0.025 - cardBorder * 3);
+		forward.setLayoutX(screenWidth - screenHeight * 0.05 - cardBorder * 3);
+		forward.setLayoutY(screenHeight - screenHeight * 0.05 - cardBorder * 3);
 		forward.setId("forwardbutton");
 		forward.setVisible(false);
 		this.getChildren().add(forward);
 		sendPicks = new Button("Ok, you win.", "gameScreen");
 		sendPicks.setLayoutX(screenWidth / 2 - cardWidth / 2);
-		sendPicks.setLayoutY(screenHeight - screenHeight * 0.025 - cardBorder * 2);
+		sendPicks.setLayoutY(screenHeight - screenHeight * 0.05 - cardBorder * 2);
 		sendPicks.setVisible(false);
 		sendPicks.setOnMouseClicked(send -> {
 			if (!Main.somethingSelected) {
@@ -133,7 +133,7 @@ public class PickScreen extends Pane {
 				sendPicks.setVisible(false);
 			}
 			double width = (screenWidth - screenHeight * 0.4) / 3;
-			double height = (((screenWidth - screenHeight * 0.4) / 3) / cardWidth) * screenHeight;
+			double height = (((screenWidth - screenHeight * 0.4) / 3) / cardWidth) * cardHeight;
 			double radius = height / 22;
 			double border = (width * 13) / 126;
 			double text = (width * 9) / 100;

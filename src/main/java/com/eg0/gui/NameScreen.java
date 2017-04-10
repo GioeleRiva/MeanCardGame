@@ -38,7 +38,7 @@ public class NameScreen extends Pane {
 		play.setLayoutY(screenHeight - screenHeight * 0.05 - 2 * cardBorder);
 		play.setVisible(false);
 		this.getChildren().add(play);
-		Card bCard = new Card("My name is _______ .", "black", 0);
+		Card bCard = new Card("My name is ____.", "black", 0);
 		CardPane blackCard = new CardPane(bCard);
 		blackCard.setLayoutX(screenHeight * 0.05);
 		blackCard.setLayoutY(screenHeight * 0.05);

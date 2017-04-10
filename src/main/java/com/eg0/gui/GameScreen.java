@@ -133,7 +133,6 @@ public class GameScreen extends Pane {
 		task.setOnSucceeded(ask -> {
 			send.setVisible(true);
 			send.setOnMouseClicked(clicked1 -> {
-				System.out.println(Main.somethingSelected);
 				if (!Main.somethingSelected) {
 					Main.somethingSelected = true;
 					send.setDisable(true);
@@ -184,7 +183,6 @@ public class GameScreen extends Pane {
 									if (picksNum == 1) {
 										Card card = Main.whiteCards.get(selectedCards.get(0));
 										cards.add(card);
-										System.out.println(selectedCards.get(0));
 										int temp = selectedCards.get(0);
 										Main.whiteCards.remove(temp);
 									}

@@ -64,7 +64,8 @@ public class Listener implements Runnable {
 						Main.changeScreen("gameScreen", false);
 						break;
 					case SERVER_SENDCARDS:
-						Main.gameScreen.drawCards(message.getWhiteCards());
+						Main.whiteCards.addAll(message.getWhiteCards());
+						Main.gameScreen.drawCards(Main.whiteCards);
 						break;
 					case SERVER_SENDBLACK:
 						Main.changeScreen("pickScreen", true);

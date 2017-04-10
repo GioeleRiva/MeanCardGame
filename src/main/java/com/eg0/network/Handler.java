@@ -62,6 +62,14 @@ public class Handler extends Thread {
 					case PLAYER_SENDPICKS:
 						game.getPicks().add(message.getWhiteCards());
 						game.getPickPlayers().add(player);
+						for (int x = 0; x < message.getWhiteCards().size(); x++) {
+							for (int y = 0; y < player.getCards().size(); y++) {
+								if (player.getCards().get(y).getText()
+										.equals(message.getWhiteCards().get(x).getText())) {
+									player.getCards().remove(y);
+								}
+							}
+						}
 						if (game.getPicks().size() == game.getPlayers().size() - 1) {
 							askWinner(game.getPicks());
 							sendPicks(game.getPicks());
@@ -69,8 +77,14 @@ public class Handler extends Thread {
 						}
 						break;
 					case PLAYER_SENDWINNER:
-						game.getPlayers().get(message.getWinner()).addWin();
+						game.getPickPlayers().get(message.getWinner()).addWin();
+						System.out.println(game.getPickPlayers().get(message.getWinner()).getUserName() + " WINS!");
 						// TODO show win
+						game.getPickPlayers().clear();
+						for (int x = 0; x < game.getPlayers().size(); x++) {
+							System.out.println("Player " + game.getPlayers().get(x).getUserName() + " wins: "
+									+ game.getPlayers().get(x).getWins());
+						}
 						Thread.sleep(500);
 						startGame();
 						Thread.sleep(500);
@@ -143,24 +157,28 @@ public class Handler extends Thread {
 	private void sendCards() {
 		for (int x = 0; x < game.getPlayers().size(); x++) {
 			int toSend = 10 - game.getPlayers().get(x).getCards().size();
-			Message message = new Message();
-			message.setMessageType(MessageType.SERVER_SENDCARDS);
-			ArrayList<Card> cards = new ArrayList<>();
-			String temp0 = "Sent cards ";
-			for (int i = 0; i < cards.size(); i++) {
-				temp0 = temp0 + cards.get(i).getText() + " ";
-			}
-			temp0 = temp0 + "to " + game.getPlayers().get(x).getUserName();
-			for (int y = 0; y < toSend; y++) {
-				cards.add(game.getWhiteCard());
-			}
-			message.setWhiteCards(cards);
-			try {
-				game.getPlayers().get(x).getObjectOutputStream().writeObject(message);
-				game.getPlayers().get(x).getObjectOutputStream().reset();
-				game.getPlayers().get(x).getObjectOutputStream().flush();
-			} catch (Exception e) {
-				System.out.println(e);
+			if (toSend != 0) {
+				Message message = new Message();
+				message.setMessageType(MessageType.SERVER_SENDCARDS);
+				ArrayList<Card> cards = new ArrayList<>();
+				String temp0 = "Sent cards ";
+				for (int y = 0; y < toSend; y++) {
+					cards.add(game.getWhiteCard());
+				}
+				for (int i = 0; i < cards.size(); i++) {
+					temp0 = temp0 + cards.get(i).getText() + " ";
+				}
+				temp0 = temp0 + "to " + game.getPlayers().get(x).getUserName();
+				game.getPlayers().get(x).getCards().addAll(cards);
+				message.setWhiteCards(cards);
+				try {
+					game.getPlayers().get(x).getObjectOutputStream().writeObject(message);
+					game.getPlayers().get(x).getObjectOutputStream().reset();
+					game.getPlayers().get(x).getObjectOutputStream().flush();
+				} catch (Exception e) {
+					System.out.println(e);
+				}
+				System.out.println(temp0);
 			}
 		}
 	}
@@ -178,8 +196,7 @@ public class Handler extends Thread {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-		System.out.println(
-				"Sent " + card.getText() + " to " + game.getPlayers().get(game.getTurn()).getUserName());
+		System.out.println("Sent " + card.getText() + " to " + game.getPlayers().get(game.getTurn()).getUserName());
 	}
 
 	private void askPicks() {

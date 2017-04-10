@@ -7,6 +7,7 @@ import com.eg0.network.Listener;
 
 import javafx.animation.ScaleTransition;
 import javafx.concurrent.Task;
+import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 
@@ -131,24 +132,47 @@ public class PickScreen extends Pane {
 				forward.setVisible(false);
 				sendPicks.setVisible(false);
 			}
+			double width = (screenWidth - screenHeight * 0.4) / 3;
+			double height = (((screenWidth - screenHeight * 0.4) / 3) / cardWidth) * screenHeight;
+			double radius = height / 22;
+			double border = (width * 13) / 126;
+			double text = (width * 9) / 100;
 			CardPane black = new CardPane(blackCard);
-			black.setPrefSize((screenWidth - screenHeight * 0.4) / 3,
-					(((screenWidth - screenHeight * 0.4) / 3) / cardWidth) * screenHeight);
+			black.setPrefSize(width, height);
+			black.setStyle("-fx-background-radius: " + Double.toString(radius) + " " + Double.toString(radius) + " "
+					+ Double.toString(radius) + " " + Double.toString(radius) + ";");
 			black.setLayoutX(screenHeight * 0.1);
 			black.setLayoutY(screenHeight * 0.1);
+			Label blackText = (Label) black.getChildren().get(0);
+			blackText.setLayoutX(border);
+			blackText.setLayoutY(border);
+			blackText.setMaxSize(width - 2 * border, height - 2 * border);
+			blackText.setStyle("-fx-font-size: " + Double.toString(text) + "px;");
 			this.getChildren().add(black);
 			CardPane card1 = new CardPane(picks.get(pick).get(0));
-			card1.setPrefSize((screenWidth - screenHeight * 0.4) / 3,
-					(((screenWidth - screenHeight * 0.4) / 3) / cardWidth) * screenHeight);
+			card1.setPrefSize(width, height);
+			card1.setStyle("-fx-background-radius: " + Double.toString(radius) + " " + Double.toString(radius) + " "
+					+ Double.toString(radius) + " " + Double.toString(radius) + ";");
 			card1.setLayoutX(screenHeight * 0.2 + (screenWidth - screenHeight * 0.4) / 3);
 			card1.setLayoutY(screenHeight * 0.1);
+			Label card1Text = (Label) card1.getChildren().get(0);
+			card1Text.setLayoutX(border);
+			card1Text.setLayoutY(border);
+			card1Text.setMaxSize(width - 2 * border, height - 2 * border);
+			card1Text.setStyle("-fx-font-size: " + Double.toString(text) + "px;");
 			this.getChildren().add(card1);
 			if (blackCard.getCardsRequired() == 2) {
 				CardPane card2 = new CardPane(picks.get(pick).get(1));
-				card2.setPrefSize((screenWidth - screenHeight * 0.4) / 3,
-						(((screenWidth - screenHeight * 0.4) / 3) / cardWidth) * screenHeight);
+				card2.setPrefSize(width, height);
+				card2.setStyle("-fx-background-radius: " + Double.toString(radius) + " " + Double.toString(radius) + " "
+						+ Double.toString(radius) + " " + Double.toString(radius) + ";");
 				card2.setLayoutX(screenHeight * 0.3 + (screenWidth - screenHeight * 0.4) / 1.5);
 				card2.setLayoutY(screenHeight * 0.1);
+				Label card2Text = (Label) card2.getChildren().get(0);
+				card2Text.setLayoutX(border);
+				card2Text.setLayoutY(border);
+				card2Text.setMaxSize(width - 2 * border, height - 2 * border);
+				card2Text.setStyle("-fx-font-size: " + Double.toString(text) + "px;");
 				this.getChildren().add(card2);
 			}
 			back.setOnMouseClicked(click1 -> {

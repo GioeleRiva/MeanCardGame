@@ -22,7 +22,7 @@ public class PickScreen extends Pane {
 	double cardTextSize = (cardWidth * 9) / 100;
 
 	private ArrayList<ArrayList<Card>> picks = new ArrayList<>();
-	int pick = 0;
+	public int pick = 0;
 
 	Pane back;
 	Pane forward;
@@ -176,7 +176,6 @@ public class PickScreen extends Pane {
 				this.getChildren().add(card2);
 			}
 			back.setOnMouseClicked(click1 -> {
-				// TODO Main.changeScreen("pickScreen", false);
 				if (!Main.somethingSelected) {
 					Main.somethingSelected = true;
 					back.setDisable(true);
@@ -210,7 +209,6 @@ public class PickScreen extends Pane {
 				}
 			});
 			forward.setOnMouseClicked(click2 -> {
-				// TODO Main.changeScreen("pickScreen", false);
 				if (!Main.somethingSelected) {
 					Main.somethingSelected = true;
 					forward.setDisable(true);

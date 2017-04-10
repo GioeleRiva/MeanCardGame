@@ -75,13 +75,14 @@ public class Listener implements Runnable {
 						Main.gameScreen.askPicks(message.getBlackCard().getCardsRequired());
 						break;
 					case SERVER_SENDPICKS:
-						// TODO fix
+						Main.pickScreen.pick = 0;
 						Main.changeScreen("pickScreen", false);
 						Main.pickScreen.setPicks(message.getPicks());
 						Main.pickScreen.drawPicks(message.getBlackCard(), true);
 						System.out.println(message.getBlackCard().getText());
 						break;
 					case SERVER_ASKWINNER:
+						Main.changeScreen("pickScreen", false);
 						Main.pickScreen.setPicks(message.getPicks());
 						Main.pickScreen.drawPicks(message.getBlackCard(), true);
 						Thread.sleep(500);

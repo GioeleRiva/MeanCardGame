@@ -77,14 +77,13 @@ public class Main extends Application {
 			FadeTransition fade1 = new FadeTransition();
 			if (!czar) {
 				black.setId("black");
-				fade1.setDuration(Duration.millis(500));
+
 			} else {
 				black.setId("blackczar");
-				fade1.setDuration(Duration.millis(1500));
 			}
+			fade1.setDuration(Duration.millis(500));
 			black.setMouseTransparent(true);
 			stackPane.getChildren().add(stackPane.getChildren().size(), black);
-
 			fade1.setFromValue(0);
 			fade1.setToValue(1);
 			fade1.setNode(black);
@@ -113,16 +112,20 @@ public class Main extends Application {
 				}
 				black.toFront();
 				FadeTransition fade2 = new FadeTransition();
-				if (!czar) {
-					fade2.setDuration(Duration.millis(500));
-				} else {
-					fade2.setDuration(Duration.millis(1500));
-				}
+				fade2.setDuration(Duration.millis(500));
 				fade2.setFromValue(1);
-				fade2.setToValue(0);
+				fade2.setToValue(1);
 				fade2.setNode(black);
 				fade2.setOnFinished(done2 -> {
-					stackPane.getChildren().remove(black);
+					FadeTransition fade3 = new FadeTransition();
+					fade3.setDuration(Duration.millis(500));
+					fade3.setFromValue(1);
+					fade3.setToValue(0);
+					fade3.setNode(black);
+					fade3.setOnFinished(done3 -> {
+						stackPane.getChildren().remove(black);
+					});
+					fade3.play();
 				});
 				fade2.play();
 			});

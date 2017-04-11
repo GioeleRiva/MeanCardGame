@@ -42,6 +42,7 @@ public class WinScreen extends Pane {
 			for (int x = 0; x < this.getChildren().size(); x++) {
 				if (!this.getChildren().get(x).getId().equals("backgroundimage")) {
 					this.getChildren().remove(x);
+					x--;
 				}
 			}
 			double width = (screenWidth - screenHeight * 0.2) / 3;
@@ -117,6 +118,7 @@ public class WinScreen extends Pane {
 			this.getChildren().add(label);
 			Image image = new Image("/Tada.gif");
 			ImageView imageView = new ImageView(image);
+			imageView.setId("imageview"); //TODO FIX
 			imageView.setFitWidth(screenWidth);
 			imageView.setFitHeight(screenHeight);
 			this.getChildren().add(imageView);

@@ -47,6 +47,7 @@ public class Handler extends Thread {
 					switch (message.getMessageType()) {
 					case PLAYER_STARTGAME:
 						game.shufflePlayers();
+						game.setPlayersInGame(game.getPlayers().size());
 						String temp0 = "Players order: ";
 						for (int x = 0; x < game.getPlayers().size(); x++) {
 							temp0 = temp0 + game.getPlayers().get(x).getUserName() + " ";
@@ -70,7 +71,7 @@ public class Handler extends Thread {
 								}
 							}
 						}
-						if (game.getPicks().size() == game.getPlayers().size() - 1) {
+						if (game.getPicks().size() == game.getPlayersInGame() - 1) {
 							askWinner(game.getPicks());
 							sendPicks(game.getPicks());
 						}

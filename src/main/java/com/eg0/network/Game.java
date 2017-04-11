@@ -19,6 +19,7 @@ public class Game {
 	private static Card currentBlack;
 	private ArrayList<ArrayList<Card>> picks = new ArrayList<>();
 	private ArrayList<Player> pickPlayers = new ArrayList<>();
+	private int playersInGame = 0;
 
 	public Game(String gameCode) {
 		this.gameCode = gameCode;
@@ -121,6 +122,14 @@ public class Game {
 
 	public ArrayList<Player> getPickPlayers() {
 		return pickPlayers;
+	}
+
+	public int getPlayersInGame() {
+		return playersInGame;
+	}
+
+	public void setPlayersInGame(int playersInGame) {
+		this.playersInGame = playersInGame;
 	}
 
 }

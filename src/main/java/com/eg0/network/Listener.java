@@ -89,6 +89,10 @@ public class Listener implements Runnable {
 						Thread.sleep(500);
 						Main.pickScreen.askWinner();
 						break;
+					case SERVER_SENDWINNER:
+						Main.winScreen.showWin(message.getBlackCard(), message.getWhiteCards(), message.getUserName());
+						Main.changeScreen("winScreen", false);
+						break;
 					}
 				}
 			}

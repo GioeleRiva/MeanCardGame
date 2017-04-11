@@ -32,6 +32,7 @@ public class Main extends Application {
 	public static RoomScreen roomScreen;
 	public static GameScreen gameScreen;
 	public static PickScreen pickScreen;
+	public static WinScreen winScreen;
 
 	public static boolean somethingSelected = false;
 
@@ -45,6 +46,8 @@ public class Main extends Application {
 	public void start(Stage stage) {
 		stackPane = new StackPane();
 		stackPane.getStylesheets().add("/Style.css");
+		winScreen = new WinScreen();
+		stackPane.getChildren().add(winScreen);
 		pickScreen = new PickScreen();
 		stackPane.getChildren().add(pickScreen);
 		gameScreen = new GameScreen();
@@ -109,6 +112,9 @@ public class Main extends Application {
 				}
 				if (screen.equals("pickScreen")) {
 					pickScreen.toFront();
+				}
+				if (screen.equals("winScreen")) {
+					winScreen.toFront();
 				}
 				black.toFront();
 				FadeTransition fade2 = new FadeTransition();

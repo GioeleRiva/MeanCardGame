@@ -34,7 +34,7 @@ public class JoinScreen extends Pane {
 		backgroundImage.setLayoutX(screenWidth - screenHeight);
 		backgroundImage.setId("backgroundimage");
 		this.getChildren().add(backgroundImage);
-		play = new Button("Play.", "playscreen");
+		play = new Button("Play.", null);
 		play.setLayoutX(screenWidth - screenHeight * 0.05 - cardWidth);
 		play.setLayoutY(screenHeight - screenHeight * 0.05 - 2 * cardBorder);
 		play.setVisible(false);

@@ -50,7 +50,7 @@ public class PickScreen extends Pane {
 		forward.setId("forwardbutton");
 		forward.setVisible(false);
 		this.getChildren().add(forward);
-		sendPicks = new Button("Ok, you win.", "gameScreen");
+		sendPicks = new Button("Ok, you win.", null);
 		sendPicks.setLayoutX(screenWidth / 2 - cardWidth / 2);
 		sendPicks.setLayoutY(screenHeight - screenHeight * 0.05 - cardBorder * 2);
 		sendPicks.setVisible(false);

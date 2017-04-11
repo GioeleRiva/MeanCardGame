@@ -2,6 +2,7 @@ package com.eg0.gui;
 
 import com.eg0.network.Card;
 
+import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 
@@ -24,6 +25,7 @@ public class CardPane extends Pane {
 		cardText.setLayoutX(cardBorder);
 		cardText.setLayoutY(cardBorder);
 		cardText.setWrapText(true);
+		cardText.setAlignment(Pos.TOP_LEFT);
 		if (card.getColor().equals("white")) {
 			this.setId("whitecard");
 			cardText.setId("whitecardtext");

@@ -24,11 +24,11 @@ public class HomeScreen extends Pane {
 		play.setLayoutX(screenHeight * 0.05);
 		play.setLayoutY(screenHeight * 0.05);
 		this.getChildren().add(play);
-		Button options = new Button("Options.", "nameScreen");
+		Button options = new Button("Options.", "homeScreen");
 		options.setLayoutX(screenHeight * 0.05);
 		options.setLayoutY(screenHeight * 0.1 + cardBorder * 2);
 		this.getChildren().add(options);
-		Button rules = new Button("Rules.", "nameScreen");
+		Button rules = new Button("Rules.", "homeScreen");
 		rules.setLayoutX(screenHeight * 0.05);
 		rules.setLayoutY(screenHeight * 0.15 + cardBorder * 4);
 		this.getChildren().add(rules);

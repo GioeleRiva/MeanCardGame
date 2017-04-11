@@ -63,6 +63,11 @@ public class Handler extends Thread {
 					case PLAYER_SENDPICKS:
 						game.getPicks().add(message.getWhiteCards());
 						game.getPickPlayers().add(player);
+						String temp = "";
+						for (int i = 0; i < message.getWhiteCards().size(); i++) {
+							temp = temp + message.getWhiteCards().get(i).getText() + " ";
+						}
+						System.out.println("Player " + player.getUserName() + " sent " + temp);
 						for (int x = 0; x < message.getWhiteCards().size(); x++) {
 							for (int y = 0; y < player.getCards().size(); y++) {
 								if (player.getCards().get(y).getText()
@@ -104,6 +109,7 @@ public class Handler extends Thread {
 				System.out
 						.println("Player " + player.getUserName() + " - DISCONNECTED from game " + game.getGameCode());
 				game.getPlayers().remove(player);
+				game.setPlayersInGame(game.getPlayersInGame() - 1);
 				sendPlayers();
 			} catch (Exception x) {
 				System.out.println(x);

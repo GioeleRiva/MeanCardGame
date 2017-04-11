@@ -165,7 +165,7 @@ public class PickScreen extends Pane {
 			card1Text.setMaxSize(width - 2 * border, height - 2 * border);
 			card1Text.setStyle("-fx-font-size: " + Double.toString(text) + "px;");
 			this.getChildren().add(card1);
-			if (blackCard.getCardsRequired() == 2) {
+			if (blackCard.getCardsRequired() > 1) {
 				CardPane card2 = new CardPane(picks.get(pick).get(1));
 				card2.setPrefSize(width, height);
 				card2.setStyle("-fx-background-radius: " + Double.toString(radius) + " " + Double.toString(radius) + " "
@@ -180,17 +180,17 @@ public class PickScreen extends Pane {
 				this.getChildren().add(card2);
 			}
 			if (blackCard.getCardsRequired() == 3) {
-				CardPane card3 = new CardPane(picks.get(pick).get(1));
+				CardPane card3 = new CardPane(picks.get(pick).get(2));
 				card3.setPrefSize(width, height);
 				card3.setStyle("-fx-background-radius: " + Double.toString(radius) + " " + Double.toString(radius) + " "
 						+ Double.toString(radius) + " " + Double.toString(radius) + ";");
 				card3.setLayoutX(screenHeight * 0.2 + 3 * width);
 				card3.setLayoutY(screenHeight * 0.05);
-				Label card2Text = (Label) card3.getChildren().get(0);
-				card2Text.setLayoutX(border);
-				card2Text.setLayoutY(border);
-				card2Text.setMaxSize(width - 2 * border, height - 2 * border);
-				card2Text.setStyle("-fx-font-size: " + Double.toString(text) + "px;");
+				Label card3Text = (Label) card3.getChildren().get(0);
+				card3Text.setLayoutX(border);
+				card3Text.setLayoutY(border);
+				card3Text.setMaxSize(width - 2 * border, height - 2 * border);
+				card3Text.setStyle("-fx-font-size: " + Double.toString(text) + "px;");
 				this.getChildren().add(card3);
 			}
 			back.setOnMouseClicked(click1 -> {

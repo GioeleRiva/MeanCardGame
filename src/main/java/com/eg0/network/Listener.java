@@ -99,11 +99,20 @@ public class Listener implements Runnable {
 						Main.changeScreen("winScreen", false);
 						break;
 					case SERVER_SENDENDGAME:
+						Main.roomScreen.codeVisible = false;
+						Main.roomCode = "";
 						Main.endScreen.showWin(message.getPlayers());
 						Main.changeScreen("endScreen", false);
 						Thread.sleep(3000);
 						Main.changeScreen("homeScreen", false);
-						Main.roomCode = "";
+						Message endMessage = new Message();
+						endMessage.setMessageType(MessageType.PLAYER_DONE);
+						try {
+							objectOutputStream.writeObject(endMessage);
+							objectOutputStream.flush();
+						} catch (Exception e) {
+							System.out.println(e + "3");
+						}
 						socket.close();
 						break;
 					}

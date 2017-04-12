@@ -26,7 +26,7 @@ public class RoomScreen extends Pane {
 
 	Button play;
 
-	boolean codeVisible = false;
+	public boolean codeVisible = false;
 	boolean playVisible = false;
 
 	Pane pane = this;
@@ -163,7 +163,7 @@ public class RoomScreen extends Pane {
 		};
 		task.setOnSucceeded(draw -> {
 			for (int x = 0; x < this.getChildren().size(); x++) {
-				if (this.getChildren().get(x).equals("whitecard")) {
+				if (this.getChildren().get(x).getId().equals("whitecard")) {
 					this.getChildren().remove(x);
 					x--;
 				}

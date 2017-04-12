@@ -104,10 +104,14 @@ public class Handler extends Thread {
 							askPicks();
 						} else {
 							sendEndGame();
-							Thread.sleep(4000);
-							Server.games.remove(game);
-							return;
 						}
+						break;
+					case PLAYER_DONE:
+						game.getPlayers().remove(player);
+						if (game.getPlayers().size() == 0) {
+							Server.games.remove(game);
+						}
+						socket.close();
 						break;
 					}
 				}

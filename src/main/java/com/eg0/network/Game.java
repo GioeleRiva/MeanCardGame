@@ -20,9 +20,18 @@ public class Game {
 	private ArrayList<ArrayList<Card>> picks = new ArrayList<>();
 	private ArrayList<Player> pickPlayers = new ArrayList<>();
 	private int playersInGame = 0;
+	private int wins;
+	private int turns;
+	private int turnsPassed = 0;
 
-	public Game(String gameCode) {
+	public Game(String gameCode, String wins, String turns) {
 		this.gameCode = gameCode;
+		if (!wins.equals("-")) {
+			this.wins = Integer.valueOf(wins);
+		}
+		if (!turns.equals("-")) {
+			this.turns = Integer.valueOf(turns);
+		}
 		try {
 			setWhiteCards();
 			setBlackCards();
@@ -130,6 +139,22 @@ public class Game {
 
 	public void setPlayersInGame(int playersInGame) {
 		this.playersInGame = playersInGame;
+	}
+
+	public int getWins() {
+		return wins;
+	}
+
+	public int getTurns() {
+		return turns;
+	}
+
+	public int getTurnsPassed() {
+		return turnsPassed;
+	}
+
+	public void setTurnsPassed(int turnsPassed) {
+		this.turnsPassed = turnsPassed;
 	}
 
 }

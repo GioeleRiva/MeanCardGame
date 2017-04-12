@@ -118,7 +118,7 @@ public class WinScreen extends Pane {
 			this.getChildren().add(label);
 			Image image = new Image("/Tada.gif");
 			ImageView imageView = new ImageView(image);
-			imageView.setId("imageview"); //TODO FIX
+			imageView.setId("imageview");
 			imageView.setFitWidth(screenWidth);
 			imageView.setFitHeight(screenHeight);
 			this.getChildren().add(imageView);

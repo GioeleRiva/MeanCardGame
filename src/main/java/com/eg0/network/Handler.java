@@ -26,7 +26,7 @@ public class Handler extends Thread {
 				ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);) {
 			Message firstMessage = (Message) objectInputStream.readObject();
 			if (firstMessage.getMessageType().equals(MessageType.PLAYER_CREATE)) {
-				game = Server.createGame();
+				game = Server.createGame(firstMessage.getWins(), firstMessage.getTurns());
 				player = new Player(game.getGameCode(), firstMessage.getUserName(), 0, objectOutputStream);
 				sendRoomCode();
 			}
@@ -94,12 +94,20 @@ public class Handler extends Thread {
 									+ game.getPlayers().get(x).getWins());
 						}
 						Thread.sleep(500);
-						startGame();
-						Thread.sleep(500);
-						sendCards();
-						Thread.sleep(3000);
-						sendBlack();
-						askPicks();
+						game.setTurnsPassed(game.getTurnsPassed() + 1);
+						if (!gameEnded()) {
+							startGame();
+							Thread.sleep(500);
+							sendCards();
+							Thread.sleep(3000);
+							sendBlack();
+							askPicks();
+						} else {
+							sendEndGame();
+							Thread.sleep(4000);
+							Server.games.remove(game);
+							return;
+						}
 						break;
 					}
 				}
@@ -119,6 +127,28 @@ public class Handler extends Thread {
 			}
 			return;
 		}
+	}
+
+	private boolean gameEnded() {
+		if (game.getTurnsPassed() == game.getTurns() && game.getTurns() != 0) {
+			return true;
+		} else {
+			if (someoneWon()) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+	}
+
+	private boolean someoneWon() {
+		boolean temp = false;
+		for (int x = 0; x < game.getPlayers().size(); x++) {
+			if (game.getPlayers().get(x).getWins() == game.getWins() && game.getWins() != 0) {
+				temp = true;
+			}
+		}
+		return temp;
 	}
 
 	private synchronized void sendRoomCode() {
@@ -166,7 +196,6 @@ public class Handler extends Thread {
 	private void sendCards() {
 		for (int x = 0; x < game.getPlayers().size(); x++) {
 			int toSend = 10 - game.getPlayers().get(x).getCards().size();
-			// if (toSend != 0) {
 			Message message = new Message();
 			message.setMessageType(MessageType.SERVER_SENDCARDS);
 			ArrayList<Card> cards = new ArrayList<>();
@@ -188,7 +217,6 @@ public class Handler extends Thread {
 				System.out.println(e);
 			}
 			System.out.println(temp0);
-			// }
 		}
 	}
 
@@ -265,6 +293,33 @@ public class Handler extends Thread {
 			message.setWhiteCards(pick);
 			message.setBlackCard(game.getCurrentBlack());
 			message.setUserName(player);
+			try {
+				game.getPlayers().get(x).getObjectOutputStream().writeObject(message);
+				game.getPlayers().get(x).getObjectOutputStream().reset();
+				game.getPlayers().get(x).getObjectOutputStream().flush();
+			} catch (Exception e) {
+				System.out.println(e);
+			}
+		}
+	}
+
+	private void sendEndGame() {
+		int temp = 0;
+		ArrayList<Player> winners = new ArrayList<>();
+		for (int x = 0; x < game.getPlayers().size(); x++) {
+			if (game.getPlayers().get(x).getWins() > temp) {
+				temp = game.getPlayers().get(x).getWins();
+			}
+		}
+		for (int x = 0; x < game.getPlayers().size(); x++) {
+			if (game.getPlayers().get(x).getWins() == temp) {
+				winners.add(game.getPlayers().get(x));
+			}
+		}
+		for (int x = 0; x < game.getPlayers().size(); x++) {
+			Message message = new Message();
+			message.setMessageType(MessageType.SERVER_SENDENDGAME);
+			message.setPlayers(winners);
 			try {
 				game.getPlayers().get(x).getObjectOutputStream().writeObject(message);
 				game.getPlayers().get(x).getObjectOutputStream().reset();

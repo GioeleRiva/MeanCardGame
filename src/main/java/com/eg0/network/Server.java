@@ -39,10 +39,10 @@ public class Server {
 		return sb.toString();
 	}
 
-	public synchronized static Game createGame() {
+	public synchronized static Game createGame(String wins, String turns) {
 		String code = randomString(4);
 		System.out.println(code);
-		Game game = new Game(code);
+		Game game = new Game(code, wins, turns);
 		games.add(game);
 		return game;
 	}

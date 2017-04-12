@@ -47,31 +47,6 @@ public class RoomScreen extends Pane {
 	}
 
 	public void playButton() {
-		if (!Main.roomCode.equals("") && !codeVisible) {
-			codeVisible = true;
-			Task<Void> task = new Task<Void>() {
-				@Override
-				protected Void call() throws Exception {
-					return null;
-				}
-			};
-			task.setOnSucceeded(code -> {
-				Label label = new Label(Main.roomCode);
-				label.setPrefSize(cardWidth / 2, 2 * cardBorder);
-				label.setLayoutX(screenWidth / 2 - cardWidth / 4);
-				label.setLayoutY(screenHeight * 0.05);
-				label.setId("buttontext");
-				label.setAlignment(Pos.CENTER);
-				label.setStyle("-fx-background-radius: " + Double.toString(cardRadius) + " "
-						+ Double.toString(cardRadius) + " " + Double.toString(cardRadius) + " "
-						+ Double.toString(cardRadius) + "; -fx-background-color: black; -fx-font-size: "
-						+ Double.toString(cardTextSize) + "px;");
-				this.getChildren().add(label);
-			});
-			Thread thread = new Thread(task);
-			thread.setDaemon(true);
-			thread.start();
-		}
 		if (!Main.roomCode.equals("") && Main.players.size() > 2) {
 			playVisible = true;
 			Task<Void> task = new Task<Void>() {
@@ -140,6 +115,31 @@ public class RoomScreen extends Pane {
 	}
 
 	public void drawPlayers(ArrayList<Player> players) {
+		if (!Main.roomCode.equals("") && !codeVisible) {
+			codeVisible = true;
+			Task<Void> task = new Task<Void>() {
+				@Override
+				protected Void call() throws Exception {
+					return null;
+				}
+			};
+			task.setOnSucceeded(code -> {
+				Label label = new Label(Main.roomCode);
+				label.setPrefSize(cardWidth / 2, 2 * cardBorder);
+				label.setLayoutX(screenWidth / 2 - cardWidth / 4);
+				label.setLayoutY(screenHeight * 0.05);
+				label.setId("buttontext");
+				label.setAlignment(Pos.CENTER);
+				label.setStyle("-fx-background-radius: " + Double.toString(cardRadius) + " "
+						+ Double.toString(cardRadius) + " " + Double.toString(cardRadius) + " "
+						+ Double.toString(cardRadius) + "; -fx-background-color: black; -fx-font-size: "
+						+ Double.toString(cardTextSize) + "px;");
+				this.getChildren().add(label);
+			});
+			Thread thread = new Thread(task);
+			thread.setDaemon(true);
+			thread.start();
+		}
 		int old = Main.players.size();
 		Main.players = players;
 		Task<ArrayList<CardPane>> task = new Task<ArrayList<CardPane>>() {

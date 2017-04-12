@@ -26,6 +26,7 @@ public class Main extends Application {
 
 	public static StackPane stackPane;
 	public static HomeScreen homeScreen;
+	public static OptionsScreen optionsScreen;
 	public static NameScreen nameScreen;
 	public static PlayScreen playScreen;
 	public static JoinScreen joinScreen;
@@ -33,6 +34,7 @@ public class Main extends Application {
 	public static GameScreen gameScreen;
 	public static PickScreen pickScreen;
 	public static WinScreen winScreen;
+	public static EndScreen endScreen;
 
 	public static boolean somethingSelected = false;
 
@@ -46,6 +48,8 @@ public class Main extends Application {
 	public void start(Stage stage) {
 		stackPane = new StackPane();
 		stackPane.getStylesheets().add("/Style.css");
+		endScreen = new EndScreen();
+		stackPane.getChildren().add(endScreen);
 		winScreen = new WinScreen();
 		stackPane.getChildren().add(winScreen);
 		pickScreen = new PickScreen();
@@ -60,8 +64,11 @@ public class Main extends Application {
 		stackPane.getChildren().add(playScreen);
 		nameScreen = new NameScreen();
 		stackPane.getChildren().add(nameScreen);
+		optionsScreen = new OptionsScreen();
+		stackPane.getChildren().add(optionsScreen);
 		homeScreen = new HomeScreen();
 		stackPane.getChildren().add(homeScreen);
+
 		Scene scene = new Scene(stackPane);
 		stage.setScene(scene);
 		stage.show();
@@ -95,6 +102,9 @@ public class Main extends Application {
 				if (screen.equals("homeScreen")) {
 					homeScreen.toFront();
 				}
+				if (screen.equals("optionsScreen")) {
+					optionsScreen.toFront();
+				}
 				if (screen.equals("nameScreen")) {
 					nameScreen.toFront();
 				}
@@ -115,6 +125,9 @@ public class Main extends Application {
 				}
 				if (screen.equals("winScreen")) {
 					winScreen.toFront();
+				}
+				if (screen.equals("endScreen")) {
+					endScreen.toFront();
 				}
 				black.toFront();
 				FadeTransition fade2 = new FadeTransition();

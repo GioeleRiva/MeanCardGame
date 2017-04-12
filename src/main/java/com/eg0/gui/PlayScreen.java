@@ -3,6 +3,7 @@ package com.eg0.gui;
 import com.eg0.network.Listener;
 
 import javafx.animation.ScaleTransition;
+import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 
@@ -53,8 +54,9 @@ public class PlayScreen extends Pane {
 						scaleTransition3.setByY(-0.05);
 						scaleTransition3.setOnFinished(done -> {
 							try {
-								Thread thread = new Thread(
-										new Listener("localhost", 15000, Main.playerName, true, null));
+								Thread thread = new Thread(new Listener("localhost", 15000, Main.playerName, true, null,
+										((Label) Main.optionsScreen.num1.getChildren().get(0)).getText(),
+										((Label) Main.optionsScreen.num2.getChildren().get(0)).getText()));
 								thread.start();
 							} catch (Exception e) {
 								System.out.println(e);

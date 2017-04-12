@@ -24,7 +24,7 @@ public class HomeScreen extends Pane {
 		play.setLayoutX(screenHeight * 0.05);
 		play.setLayoutY(screenHeight * 0.05);
 		this.getChildren().add(play);
-		Button options = new Button("Options.", "homeScreen");
+		Button options = new Button("Options.", "optionsScreen");
 		options.setLayoutX(screenHeight * 0.05);
 		options.setLayoutY(screenHeight * 0.1 + cardBorder * 2);
 		this.getChildren().add(options);

@@ -15,6 +15,8 @@ public class Message implements Serializable {
 	private Card blackCard;
 	private ArrayList<ArrayList<Card>> picks;
 	private int winner;
+	private String wins;
+	private String turns;
 
 	public MessageType getMessageType() {
 		return messageType;
@@ -78,6 +80,22 @@ public class Message implements Serializable {
 
 	public void setWinner(int winner) {
 		this.winner = winner;
+	}
+
+	public String getWins() {
+		return wins;
+	}
+
+	public void setWins(String wins) {
+		this.wins = wins;
+	}
+
+	public String getTurns() {
+		return turns;
+	}
+
+	public void setTurns(String turns) {
+		this.turns = turns;
 	}
 
 }

@@ -16,6 +16,8 @@ public class Listener implements Runnable {
 	private String username;
 	private boolean create;
 	private String roomCode;
+	private String wins;
+	private String turns;
 
 	private Socket socket;
 	private OutputStream outputStream;
@@ -23,12 +25,15 @@ public class Listener implements Runnable {
 	private InputStream inputStream;
 	private ObjectInputStream objectInputStream;
 
-	public Listener(String serverIP, int port, String username, boolean create, String roomCode) {
+	public Listener(String serverIP, int port, String username, boolean create, String roomCode, String wins,
+			String turns) {
 		this.serverIP = serverIP;
 		this.port = port;
 		this.username = username;
 		this.create = create;
 		this.roomCode = roomCode;
+		this.wins = wins;
+		this.turns = turns;
 	}
 
 	@SuppressWarnings("incomplete-switch")
@@ -93,6 +98,14 @@ public class Listener implements Runnable {
 						Main.winScreen.showWin(message.getBlackCard(), message.getWhiteCards(), message.getUserName());
 						Main.changeScreen("winScreen", false);
 						break;
+					case SERVER_SENDENDGAME:
+						Main.endScreen.showWin(message.getPlayers());
+						Main.changeScreen("endScreen", false);
+						Thread.sleep(3000);
+						Main.changeScreen("homeScreen", false);
+						Main.roomCode = "";
+						socket.close();
+						break;
 					}
 				}
 			}
@@ -112,6 +125,8 @@ public class Listener implements Runnable {
 		Message message = new Message();
 		message.setUserName(username);
 		message.setMessageType(MessageType.PLAYER_CREATE);
+		message.setWins(wins);
+		message.setTurns(turns);
 		try {
 			objectOutputStream.writeObject(message);
 			objectOutputStream.flush();

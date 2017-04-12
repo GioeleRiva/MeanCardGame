@@ -111,7 +111,7 @@ public class Listener implements Runnable {
 							objectOutputStream.writeObject(endMessage);
 							objectOutputStream.flush();
 						} catch (Exception e) {
-							System.out.println(e + "3");
+							System.out.println(e + "2");
 						}
 						socket.close();
 						break;
@@ -119,7 +119,8 @@ public class Listener implements Runnable {
 				}
 			}
 		} catch (Exception e) {
-			System.out.println(e + "2");
+			System.out.println(e + "3");
+			Main.roomCode = "";
 			Main.changeScreen("homeScreen", false);
 			try {
 				socket.close();
@@ -140,7 +141,7 @@ public class Listener implements Runnable {
 			objectOutputStream.writeObject(message);
 			objectOutputStream.flush();
 		} catch (Exception e) {
-			System.out.println(e + "3");
+			System.out.println(e + "4");
 		}
 	}
 
@@ -153,7 +154,7 @@ public class Listener implements Runnable {
 			objectOutputStream.writeObject(message);
 			objectOutputStream.flush();
 		} catch (Exception e) {
-			System.out.println(e + "4");
+			System.out.println(e + "5");
 		}
 	}
 
@@ -164,7 +165,7 @@ public class Listener implements Runnable {
 			objectOutputStream.writeObject(message);
 			objectOutputStream.flush();
 		} catch (Exception e) {
-			System.out.println(e);
+			System.out.println(e + "6");
 		}
 	}
 
@@ -176,7 +177,7 @@ public class Listener implements Runnable {
 			objectOutputStream.writeObject(message);
 			objectOutputStream.flush();
 		} catch (Exception e) {
-			System.out.println(e);
+			System.out.println(e + "7");
 		}
 	}
 
@@ -188,7 +189,7 @@ public class Listener implements Runnable {
 			objectOutputStream.writeObject(message);
 			objectOutputStream.flush();
 		} catch (Exception e) {
-			System.out.println(e);
+			System.out.println(e + "8");
 		}
 	}
 

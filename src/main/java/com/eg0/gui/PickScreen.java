@@ -9,12 +9,13 @@ import javafx.animation.ScaleTransition;
 import javafx.concurrent.Task;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
+import javafx.stage.Screen;
 import javafx.util.Duration;
 
 public class PickScreen extends Pane {
 
-	double screenWidth = 640;
-	double screenHeight = 360;
+	double screenWidth = Screen.getPrimary().getVisualBounds().getWidth();
+	double screenHeight = Screen.getPrimary().getVisualBounds().getHeight();
 	double cardHeight = (screenHeight * 9) / 10;
 	double cardWidth = (cardHeight * 63) / 88;
 	double cardRadius = (cardHeight) / 22;
@@ -37,15 +38,15 @@ public class PickScreen extends Pane {
 		backgroundImage.setId("backgroundimage");
 		this.getChildren().add(backgroundImage);
 		back = new Pane();
-		back.setPrefSize(cardBorder * 3, cardBorder * 3);
+		back.setPrefSize(cardBorder * 1.5, cardBorder * 3);
 		back.setLayoutX(screenHeight * 0.05);
 		back.setLayoutY(screenHeight - screenHeight * 0.05 - cardBorder * 3);
 		back.setId("backbutton");
 		back.setVisible(false);
 		this.getChildren().add(back);
 		forward = new Pane();
-		forward.setPrefSize(cardBorder * 3, cardBorder * 3);
-		forward.setLayoutX(screenWidth - screenHeight * 0.05 - cardBorder * 3);
+		forward.setPrefSize(cardBorder * 1.5, cardBorder * 3);
+		forward.setLayoutX(screenWidth - screenHeight * 0.05 - cardBorder * 1.5);
 		forward.setLayoutY(screenHeight - screenHeight * 0.05 - cardBorder * 3);
 		forward.setId("forwardbutton");
 		forward.setVisible(false);

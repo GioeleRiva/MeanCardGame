@@ -10,12 +10,13 @@ import javafx.scene.layout.Pane;
 import javafx.scene.shape.LineTo;
 import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
+import javafx.stage.Screen;
 import javafx.util.Duration;
 
 public class JoinScreen extends Pane {
 
-	double screenWidth = 640;
-	double screenHeight = 360;
+	double screenWidth = Screen.getPrimary().getVisualBounds().getWidth();
+	double screenHeight = Screen.getPrimary().getVisualBounds().getHeight();
 	double cardHeight = (screenHeight * 9) / 10;
 	double cardWidth = (cardHeight * 63) / 88;
 	double cardRadius = (cardHeight) / 22;
@@ -112,7 +113,7 @@ public class JoinScreen extends Pane {
 						scaleTransition3.setOnFinished(done -> {
 							play.setDisable(false);
 							Main.changeScreen("roomScreen", false);
-							Thread thread = new Thread(new Listener("localhost", 15000, Main.playerName, false,
+							Thread thread = new Thread(new Listener("185.58.194.230", 15000, Main.playerName, false,
 									((Label) whiteCard.getChildren().get(0)).getText(), null, null));
 							thread.start();
 						});

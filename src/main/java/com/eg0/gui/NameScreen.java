@@ -9,12 +9,13 @@ import javafx.scene.layout.Pane;
 import javafx.scene.shape.LineTo;
 import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
+import javafx.stage.Screen;
 import javafx.util.Duration;
 
 public class NameScreen extends Pane {
 
-	double screenWidth = 640;
-	double screenHeight = 360;
+	double screenWidth = Screen.getPrimary().getVisualBounds().getWidth();
+	double screenHeight = Screen.getPrimary().getVisualBounds().getHeight();
 	double cardHeight = (screenHeight * 9) / 10;
 	double cardWidth = (cardHeight * 63) / 88;
 	double cardRadius = (cardHeight) / 22;

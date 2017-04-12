@@ -11,13 +11,14 @@ import javafx.concurrent.Task;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
 public class Main extends Application {
 
-	static double screenWidth = 640;
-	static double screenHeight = 360;
+	static double screenWidth = Screen.getPrimary().getVisualBounds().getWidth();
+	static double screenHeight = Screen.getPrimary().getVisualBounds().getHeight();
 	static double cardHeight = (screenHeight * 9) / 10;
 	static double cardWidth = (cardHeight * 63) / 88;
 	static double cardRadius = (cardHeight) / 22;

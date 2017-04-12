@@ -10,11 +10,12 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+import javafx.stage.Screen;
 
 public class WinScreen extends Pane {
 
-	double screenWidth = 640;
-	double screenHeight = 360;
+	double screenWidth = Screen.getPrimary().getVisualBounds().getWidth();
+	double screenHeight = Screen.getPrimary().getVisualBounds().getHeight();
 	double cardHeight = (screenHeight * 9) / 10;
 	double cardWidth = (cardHeight * 63) / 88;
 	double cardRadius = (cardHeight) / 22;

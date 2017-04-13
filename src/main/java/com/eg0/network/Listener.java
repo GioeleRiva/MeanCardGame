@@ -121,6 +121,7 @@ public class Listener implements Runnable {
 		} catch (Exception e) {
 			System.out.println(e + "3");
 			Main.roomCode = "";
+			Main.whiteCards.clear();
 			Main.changeScreen("homeScreen", false);
 			try {
 				socket.close();

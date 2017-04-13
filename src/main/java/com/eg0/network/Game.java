@@ -22,6 +22,18 @@ public class Game {
 	private int turns;
 	private int turnsPassed = 0;
 
+	// SERVER FINAL RELEASE
+	/*
+	File whites = new File("WhiteCards.txt");
+	File blacks = new File("BlackCards.txt");
+	*/
+
+	// SERVER TEST RELEASE
+	
+	File whites = new File(Game.class.getClassLoader().getResource("WhiteCards.txt").getFile());
+	File blacks = new File(Game.class.getClassLoader().getResource("BlackCards.txt").getFile());
+	
+	
 	public Game(String gameCode, String wins, String turns) {
 		this.gameCode = gameCode;
 		if (!wins.equals("-")) {
@@ -74,12 +86,12 @@ public class Game {
 	}
 
 	public void setWhiteCards() throws Exception {
-		LineNumberReader lineNumberReader = new LineNumberReader(new FileReader(new File("WhiteCards.txt")));
+		LineNumberReader lineNumberReader = new LineNumberReader(new FileReader(whites));
 		lineNumberReader.skip(Long.MAX_VALUE);
 		long lines = lineNumberReader.getLineNumber();
 		lineNumberReader.close();
 		@SuppressWarnings("resource")
-		BufferedReader in = new BufferedReader(new FileReader(new File("WhiteCards.txt")));
+		BufferedReader in = new BufferedReader(new FileReader(whites));
 		for (int i = 0; i < lines + 1; i++) {
 			String text = in.readLine();
 			Card card = new Card(text, "white", 0);
@@ -98,12 +110,12 @@ public class Game {
 	}
 
 	public void setBlackCards() throws Exception {
-		LineNumberReader lineNumberReader = new LineNumberReader(new FileReader(new File("BlackCards.txt")));
+		LineNumberReader lineNumberReader = new LineNumberReader(new FileReader(blacks));
 		lineNumberReader.skip(Long.MAX_VALUE);
 		long lines = lineNumberReader.getLineNumber();
 		lineNumberReader.close();
 		@SuppressWarnings("resource")
-		BufferedReader in = new BufferedReader(new FileReader(new File("BlackCards.txt")));
+		BufferedReader in = new BufferedReader(new FileReader(blacks));
 		for (int i = 0; i < lines; i = i + 2) {
 			String text = in.readLine();
 			int cardsRequired = Integer.valueOf(in.readLine());

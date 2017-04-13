@@ -1,180 +1,524 @@
-Make a haiku.
-3
+"This is maddness!" "No. THIS IS ____!"
+1
 ____ + ____ = ____.
 3
-And the Academy Award for ____ goes to ____.
-2
-For my next trick, I will pull ____ out of ____.
-2
 ____ is a slippery slope that leads to ____.
 2
-In M. Night Shyamalan's new movie, Bruce Willis discovers that ____ had really been ____ all along.
+____ may pass, but ____ will last forever.
+2
+____ will never be the same after ____.
+2
+____ would be woefully incomplete without ____.
+2
+____. Awesome in theory, kind of a mess in practice.
+1
+____. Betcha can't have just one!
+1
+____. High five, bro.
+1
+____. It's a trap!
+1
+____. That's how I want to die.
+1
+____: Good to the last drop.
+1
+____: Hours of fun. Easy to use. Perfect for ____!
+2
+____: kid-tested, mother-approved.
+1
+____? There's an app for that.
+1
+2 AM in the city that never sleeps. The door swings open and she walks in, legs up to here. Something in her eyes tells me she's looking for ____.
+1
+A romantic, candlelit dinner would be incomplete without ____.
+1
+A successful job interview begins with a firm handshake and ends with ____.
+1
+Adventure. Romance. ____. From Paramount Pictures, "____."
+2
+After Hurricane Katrina, Sean Penn brought ____ to all the people of New Orleans.
+1
+After months of debate, the Occupy Wall Street General Assembly could only agree on "More ____!"
+1
+After months of practice with ____, I think I'm finally ready for ____.
+2
+After the earthquake, Sean Penn brought ____ to the people of Haiti.
+1
+Alright, bros. Our frat house is condemned, and all the hot slampieces are over at Gamma Phi. The time has come to commence Operation ____.
+1
+Alternative medicine is now embracing the curative powers of ____.
+1
+An international tribunal has found ____ guilty of ____.
+2
+And I would have gotten away with it, too, if it hadn't been for ____!
+1
+And the Academy Award for ____ goes to ____.
+2
+And today's soup is Cream of ____.
+1
+And what did you bring for show and tell?
+1
+And would you like those buffalo wings mild, hot, or ____?
+1
+Anthropologists have recently discovered a primitive tribe that worships ____.
+1
+Armani suit: $1,000. Dinner for two at that swanky restaurant: $300. The look on her face when you surprise her with ____: priceless.
+1
+As king, how will I keep the peasants in line?
+1
+As part of his contract, Prince won't perform without ____ in his dressing room.
+1
+As part of his daily regimen, Anderson Cooper sets aside 15 minutes for ____.
+1
+Before ____, all we had was ____.
+2
+Before I run for president, I must destroy all evidence of my involvement with ____.
+1
+begin First Expansion
+1
+Behind every powerful man is ____.
+1
+Believe it or not, Jim Carrey can do a dead-on impression of ____.
+1
+BILLY MAYS HERE FOR ____.
+1
+But before I kill you, Mr. Bond, I must show you ____.
+1
+Call the law offices of Goldstein & Goldstein, because no one should have to tolerate ____ in the workplace.
+1
+Charades was ruined for me forever when my mom had to act out ____.
+1
+Come to Dubai, where you can relax in our world-famous spas, experience the nightlife, or simply enjoy ____ by the poolside.
+1
+Coming to Broadway this season, ____: The Musical.
+1
+Dear Abby, I'm having some trouble with ____ and would like your advice.
+1
+Dear Leader Kim Jong-un, our village praises your infinite wisdom with a humble offering of ____.
+1
+Dear Sir or Madam, We regret to inform you that the Office of ____ has denied your request for ____.
+2
+Do not fuck with me! I am literally ____ right now.
+1
+Do the Dew with our most extreme flavor yet! Get ready for Mountain Dew ____!
+1
+Do you lack energy? Does it sometimes feel like the whole world is ____? Zoloft.
+1
+Don't forget! Beginning this week, Casual Friday will officially become "____ Friday."
+1
+Don't worry, kid. It gets better. I've been living with ____ for 20 years.
+1
+Due to a PR fiasco, Walmart no longer offers ____.
+1
+During high school, I never really fit in until I found ____ club.
+1
+During his childhood, Salvador Dali' produced hundreds of paintings of ____.
+1
+During his midlife crisis, my dad got really into ____.
+1
+During Picasso's often-overlooked Brown Period, he produced hundreds of paintings of ____.
+1
+During sex, I like to think about ____.
+1
+Every step towards ____ gets me a little closer to ____.
+2
+Everybody join hands and close your eyes. Do you sense that? That's the presence of ____ in this room.
+1
+Everyone down on the ground! We don't want to hurt anyone. We're just here for ____.
+1
+Finally! A service that delivers ____ right to your door.
+1
+For my next trick, I will pull ____ out of ____.
+2
+Forget everything you know about ____, because now we've supercharged it with ____!
+2
+Get ready for the movie of the summer! One cop plays by the book. The other's only interested in one thing: ____.
+1
+Having problems with ____? Try ____!
+2
+Having the worst day EVER. #____
+1
+He who controls ____ controls the world.
+1
+Heed my voice, mortals! I am the god of ____, and I will not tolerate ____!
+2
+Help me doctor, I've got ____ in my butt!
+1
+Here at the Academy for Gifted Children, we allow students to explore ____ at their own pace.
+1
+Here is the church. Here is the steeple. Open the doors. And there is ____.
+1
+Hey baby, come back to my place and I'll show you ____.
+1
+Hi MTV! My name is Kendra, I live in Malibu, I'm into ____, and I love to have a good time.
+1
+Hi, this is Jim from accounting. We noticed a $1,200 charge labeled "____." Can you explain?
+1
+Honey, I have a new role-play I want to try tonight! You can be ____, and I'll be ____.
+2
+How am I compensating for my tiny penis?
+1
+How am I maintaining my relationship status?
+1
+How did I lose my virginity?
+1
+How did Stella get her groove back?
+1
+I am become ____, destroyer of ____!
+2
+I do not know with which weapons World War III will be fought, but World War IV will be fought with ____.
+1
+I don't mean to brag, but they call me the Michael Jordan of ____.
+1
+I drink to forget ____.
+1
+I got 99 problems but ____ ain't one.
+1
+I have a strict policy. First date, dinner. Second date, kiss. Third date, ____.
+1
+I learned the hard way that you can't cheer up a grieving friend with ____.
+1
+I never truly understood ____ until I encountered ____.
+2
+I spent my whole life working toward ____, only to have it ruined by ____.
+2
+I went from ____ to ____, all thanks to ____.
+3
+I went to the desert and ate of the peyote cactus. Turns out my spirit animal is ____.
+1
+I wish I hadn't lost the instruction manual for ____.
+1
+I work my ass off all day for this family, and this is what I come home to? ____!?
+1
+If God didn't want us to enjoy ____, he wouldn't have given us ____.
+2
+If you can't handle ____, you'd better stay away from ____.
+2
+If you had to describe me, the Card Czar, using only one of the cards in your hand, which one would it be?
+1
+I'm a bitch, I'm a lover, I'm a child, I'm ____.
+1
+I'm Miss Tennessee, and if I could make the world better by changing one thing, I would get rid of ____.
+1
+I'm not like the rest of you. I'm too rich and busy for ____.
+1
+I'm pretty sure I'm high right now, because I'm absolutely mesmerized by ____.
+1
+I'm sorry, Mrs. Chen, but there was nothing we could do. At 4:15 this morning, your son succumbed to ____.
+1
+I'm sorry, Professor, but I couldn't complete my homework because of ____.
+1
+I'm sorry, sir, but we don't allow ____ at the country club.
+1
+In 1,000 years, when paper money is a distant memory, how will we pay for goods and services?
+1
+In 1,000 years, when paper money is but a distant memory, ____ will be our currency.
+1
+In a pinch, ____ can be a suitable substitute for ____.
 2
 In a world ravaged by ____, our only solace is ____.
 2
+In an attempt to reach a wider audience, the Smithsonian Museum of Natural History has opened an interactive exhibit on ____.
+1
+In his farewell address, George Washington famously warned Americans about the dangers of ____.
+1
+In his new action comedy, Jackie Chan must fend off ninjas while also dealing with ____.
+1
+In his new self-produced album, Kanye West raps over the sounds of ____.
+1
 In his new summer comedy, Rob Schneider is ____ trapped in the body of ____.
 2
-I never truly understood ____ until I encountered ____.
+In his newest and most difficult stunt, David Blaine must escape from ____.
+1
+In its new tourism campaign, Detroit proudly proclaims that it has finally eliminated ____.
+1
+In L.A. County Jail, word is you can trade 200 cigarettes for ____.
+1
+In M. Night Shyamalan's new movie, Bruce Willis discovers that ____ had really been ____ all along.
 2
-When I was tripping on acid, ____ turned into ____.
+In Michael Jackson's final moments, he thought about ____.
+1
+In return for my soul, the Devil promised me ____, but all I got was ____.
 2
-That's right, I killed ____. How, you ask? ____.
+In Rome, there are whisperings that the Vatican has a secret room devoted to ____.
+1
+In the beginning, there was ____. And the Lord said, "Let there be ____."
 2
+In the distant future, historians will agree that ____ marked the beginning of America's decline.
+1
+In the new Disney Channel Original Movie, Hannah Montana struggles with ____ for the first time.
+1
+In the seventh circle of Hell, sinners must endure ____ for all eternity.
+1
+Instead of coal, Santa now gives the bad children ____.
+1
+It lurks in the night. It hungers for flesh. This summer, no one is safe from ____.
+1
+It's a pity that kids these days are all getting involved with ____.
+1
+It's Morphin' Time! Mastadon! Pterodactyl! Triceratops! Sabertooth Tiger! ____!
+1
+James is a lonely boy. But when he discovers a secret door in his attic, he meets a magical new friend: ____.
+1
+Life for American Indians was forever changed when the White Man introduced them to ____.
+1
+Life was difficult for cavemen before ____.
+1
+Life's pretty tough in the fast lane. That's why I never leave the house without ____.
+1
 Lifetime presents ____, the story of ____.
 2
+Listen, Gary, I like you. But if you want that corner office, you're going to have to show me ____.
+1
+Listen, son. If you want to get involved with ____, I won't stop you. Just steer clear of ____.
+2
+Little Miss Muffet Sat on a tuffet, Eating her curds and ____.
+1
+Lovin' you is easy 'cause you're ____.
+1
+Major League Baseball has banned ____ for giving players an unfair advantage.
+1
+Make a haiku.
+3
+Man, this is bullshit. Fuck ____.
+1
+Maybe she's born with it. Maybe it's ____.
+1
+Members of New York's social elite are paying thousands of dollars just to experience ____.
+1
+Michael Bay's new three-hour action epic pits ____ against ____.
+2
+Money can't buy me love, but it can buy me ____.
+1
+MTV's new reality show features eight washed-up celebrities living with ____.
+1
+My country, 'tis of thee, sweet land of ____.
+1
+My grandfather worked his way up from nothing. When he came to this country, all he had was the shoes on his feet and ____.
+1
+My gym teacher got fired for adding ____ to the obstacle course.
+1
+My life is ruled by a vicious cycle of ____ and ____.
+2
+My mom freaked out when she looked at my browser history and found ____.com/____.
+2
+My new favorite porn star is Joey "____" McGee.
+1
+Next from J.K. Rowling: Harry Potter and the Chamber of ____.
+1
+Next on ESPN2, the World Series of ____.
+1
+Next time on Dr. Phil: How to talk to your child about ____.
+1
+Now in bookstores: "The Audacity of ____," by Barack Obama.
+1
+Only two things in life are certain: death and ____.
+1
+Oprah's book of the month is "____ For ____: A Story of Hope."
+2
+Patient presents with ____. Likely a result of ____.
+2
+Puberty is a time of change. You might notice hair growing in new places. You might develop an interest in ____. This is normal.
+1
 Rumor has it that Vladimir Putin's favorite delicacy is ____ stuffed with ____.
 2
-Who stole the cookies from the cookie jar?
+Science will never explain the origin of ____.
 1
-What's the next superhero?
+She's up all night for good fun. I'm up all night for ____.
 1
-Why can't I sleep at night?
+Siskel and Ebert have panned ____ as "poorly conceived" and "sloppily executed."
+1
+Step 1: ____. Step 2: ____. Step 3: Profit.
+2
+Studies show that lab rats navigate mazes 50% faster after being exposed to ____.
+1
+That's right, I killed ____. How, you ask? ____.
+2
+The blind date was going horribly until we discovered our shared interest in ____.
+1
+The CIA now interrogates enemy agents by repeatedly subjecting them to ____.
+1
+The class field trip was completely ruined by ____.
+1
+The Five Stages of Grief: denial, anger, bargaining, ____, acceptance.
+1
+The healing process began when I joined a support group for victims of ____.
+1
+The Japanese have developed a smaller, more efficient version of ____.
+1
+The six things I could never do without: oxygen, facebook, chocolate, netflix, friends, and ____ LOL!
+1
+The Smithsonian Museum of Natural History has just opened an exhibit on ____.
+1
+The socialist governments of Scandinavia have declared that access to ____ is a basic human right.
+1
+The votes are in, and the new high school mascot is ____.
+1
+This is America. If you don't work hard, you don't succeed. I don't care if you're black, white, purple, or ____.
+1
+This is the prime of my life. I'm young, hot, and full of ____.
+1
+This is the way the world ends  This is the way the world ends  Not with a bang but with ____.
+1
+This is your captain speaking. Fasten your seatbelts and prepare for ____.
+1
+This month's Cosmo: "Spice up your sex life by bringing ____ into the bedroom."
+1
+This season on Man vs. Wild, Bear Grylls must survive in the depths of the Amazon with only ____ and his wits.
+1
+This year's hottest album is "____" by ____.
+2
+To become a true Yanomamo warrior, you must prove that you can withstand ____ without crying out.
+1
+To prepare for his upcoming role, Daniel Day-Lewis immersed himself in the world of ____.
+1
+Tonight on 20/20: What you don't know about ____ could kill you.
+1
+Tonight on SNICK: "Are You Afraid of ____?"
+1
+Tonight, we will have sex. And afterwards, if you'd like, a little bit of ____.
+1
+TSA guidelines now prohibit ____ on airplanes.
+1
+Turns out that ____-Man was neither the hero we needed nor wanted.
+1
+Up next on Nickelodeon: "Clarissa Explains ____."
+1
+War! What is it good for?
+1
+We never did find ____, but along the way we sure learned a lot about ____.
+2
+Well if ____ is good enough for ____, it's good enough for me.
+2
+Well what do you have to say for yourself, Casey? This is the third time you've been sent to the principal's office for ____.
+1
+Wes Anderson's new film tells the story of a precocious child coming to terms with ____.
+1
+What am I giving up for Lent?
+1
+What are my parents hiding from me?
+1
+What brought the orgy to a grinding halt?
+1
+What did I bring back from Mexico?
+1
+What did the U.S. airdrop to the children of Afghanistan?
+1
+What did Vin Diesel eat for dinner?
+1
+What do old people smell like? 
+1
+What does Dick Cheney prefer?
+1
+What don't you want to find in your Chinese food?
+1
+What don't you want to find in your Kung Pao chicken?
+1
+What ended my last relationship?
+1
+What gets better with age?
+1
+What gives me uncontrollable gas?
+1
+What has been making life difficult at the nudist colony?
+1
+What helps Obama unwind?
+1
+What is Batman's guilty pleasure?
+1
+What killed my boner?
+1
+What left this stain on my couch?
+1
+What never fails to liven up the party?
+1
+What will always get you laid?
+1
+What will I bring back in time to convince people that I am a powerful wizard?
+1
+What would grandma find disturbing, yet oddly charming?
+1
+What's a girl's best friend?
+1
+What's fun until it gets weird?
+1
+What's making things awkward in the sauna?
+1
+What's my anti-drug?
+1
+What's my secret power?
+1
+What's Teach for America using to inspire inner city students to succeed?
 1
 What's that smell?
 1
 What's that sound?
 1
-What ended my last relationship?
+What's the crustiest?
 1
-What is Batman's guilty pleasure?
-1
-What's a girl's best friend?
-1
-What does Dick Cheney prefer?
+What's the gift that keeps on giving?
 1
 What's the most emo?
 1
-What are my parents hiding from me?
-1
-What will always get you laid?
-1
-What did I bring back from Mexico?
-1
-What don't you want to find in your Chinese food?
-1
-What will I bring back in time to convince people that I am a powerful wizard?
-1
-How am I maintaining my relationship status?
-1
-What gives me uncontrollable gas?
-1
-What do old people smell like? 
-1
-What's my secret power?
-1
-What's there a ton of in heaven?
-1
-What would grandma find disturbing, yet oddly charming?
-1
-What did the U.S. airdrop to the children of Afghanistan?
-1
-What helps Obama unwind?
-1
-What did Vin Diesel eat for dinner?
-1
-Why am I sticky?
-1
-What gets better with age?
-1
-What's the crustiest?
-1
-What's Teach for America using to inspire inner city students to succeed?
-1
-Why do I hurt all over?
-1
-What am I giving up for Lent?
-1
-What's my anti-drug?
-1
-What never fails to liven up the party?
-1
 What's the new fad diet?
-1
-I got 99 problems but ____ ain't one.
-1
-TSA guidelines now prohibit ____ on airplanes.
-1
-MTV's new reality show features eight washed-up celebrities living with ____.
-1
-I drink to forget ____.
-1
-I'm sorry, Professor, but I couldn't complete my homework because of ____.
-1
-During Picasso's often-overlooked Brown Period, he produced hundreds of paintings of ____.
-1
-Alternative medicine is now embracing the curative powers of ____.
-1
-Anthropologists have recently discovered a primitive tribe that worships ____.
-1
-It's a pity that kids these days are all getting involved with ____.
-1
-____. That's how I want to die.
-1
-In the new Disney Channel Original Movie, Hannah Montana struggles with ____ for the first time.
-1
-I wish I hadn't lost the instruction manual for ____.
-1
-Instead of coal, Santa now gives the bad children ____.
-1
-In 1,000 years, when paper money is but a distant memory, ____ will be our currency.
-1
-A romantic, candlelit dinner would be incomplete without ____.
-1
-Next from J.K. Rowling: Harry Potter and the Chamber of ____.
-1
-____. Betcha can't have just one!
-1
-White people like ____.
-1
-____. High five, bro.
-1
-During sex, I like to think about ____.
-1
-BILLY MAYS HERE FOR ____.
-1
-When I'm in prison, I'll have ____ smuggled in.
-1
-When I am the President of the United States, I will create the Department of ____.
-1
-Major League Baseball has banned ____ for giving players an unfair advantage.
-1
-When I am a billionare, I shall erect a 50-foot statue to commemorate ____.
-1
-____. It's a trap!
-1
-Coming to Broadway this season, ____: The Musical.
-1
-After Hurricane Katrina, Sean Penn brought ____ to all the people of New Orleans.
-1
-Due to a PR fiasco, Walmart no longer offers ____.
-1
-But before I kill you, Mr. Bond, I must show you ____.
-1
-When Pharaoh remained unmoved, Moses called down a plague of ____.
-1
-The class field trip was completely ruined by ____.
-1
-In Michael Jackson's final moments, he thought about ____.
-1
-In an attempt to reach a wider audience, the Smithsonian Museum of Natural History has opened an interactive exhibit on ____.
-1
-Studies show that lab rats navigate mazes 50% faster after being exposed to ____.
-1
-I do not know with which weapons World War III will be fought, but World War IV will be fought with ____.
-1
-Life was difficult for cavemen before ____.
-1
-____: Good to the last drop.
-1
-____: kid-tested, mother-approved.
-1
-____? There's an app for that.
 1
 What's the next Happy Meal toy?
 1
+What's the next superhero/sidekick duo?
+2
+What's the next superhero?
+1
+What's there a ton of in heaven?
+1
+When all else fails, I can always masturbate to ____.
+1
+When I am a billionare, I shall erect a 50-foot statue to commemorate ____.
+1
+When I am the President of the United States, I will create the Department of ____.
+1
+When I pooped, what came out of my butt?
+1
+When I was a kid, we used to play Cowboys and ____.
+1
+When I was tripping on acid, ____ turned into ____.
+2
+When I'm in prison, I'll have ____ smuggled in.
+1
+When Pharaoh remained unmoved, Moses called down a plague of ____.
+1
+When you get right down to it, ____ is just ____.
+2
 While the United States raced the Soviet Union to the moon, the Mexican government funneled millions of pesos into research on ____.
 1
-This is the way the world ends  This is the way the world ends  Not with a bang but with ____.
+White people like ____.
 1
-War! What is it good for?
+Who stole the cookies from the cookie jar?
+1
+WHOOO! God damn I love ____!
+1
+Why am I broke?
+1
+Why am I sticky?
+1
+Why can't I sleep at night?
+1
+Why do I hurt all over?
+1
+Why won't you make love to me anymore? Is it ____?
+1
+With enough time and pressure, ____ will turn into ____.
+2
+Y'all ready to get this thing started? I'm Nick Cannon, and this is America's Got ____.
+1
+Yo' mama so fat she ____!
+1
+You are not alone. Millions of Americans struggle with ____ every day.
+1
+You guys, I saw this crazy movie last night. It opens on ____, and then there's some stuff about ____, and then it ends with ____.
+3
+You haven't truly lived until you've experienced ____ and ____ at the same time.
+2
+You Won't Believe These 15 Hilarious ____ Bloopers!
+1
+You've seen the bearded lady! You've seen the ring of fire! Now, ladies and gentlemen, feast your eyes upon ____!
 1

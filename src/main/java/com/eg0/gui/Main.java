@@ -16,8 +16,8 @@ import javafx.util.Duration;
 
 public class Main extends Application {
 
-	static double screenWidth = Screen.width;
-	static double screenHeight = Screen.height;
+	static double screenWidth = Util.width;
+	static double screenHeight = Util.height;
 	static double cardHeight = (screenHeight * 9) / 10;
 	static double cardWidth = (cardHeight * 63) / 88;
 	static double cardRadius = (cardHeight) / 22;

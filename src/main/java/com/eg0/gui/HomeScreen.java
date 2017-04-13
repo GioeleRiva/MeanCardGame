@@ -4,8 +4,8 @@ import javafx.scene.layout.Pane;
 
 public class HomeScreen extends Pane {
 
-	static double screenWidth = Screen.width;
-	static double screenHeight = Screen.height;
+	static double screenWidth = Util.width;
+	static double screenHeight = Util.height;
 	double cardHeight = (screenHeight * 9) / 10;
 	double cardWidth = (cardHeight * 63) / 88;
 	double cardRadius = (cardHeight) / 22;

@@ -14,8 +14,8 @@ import javafx.util.Duration;
 
 public class JoinScreen extends Pane {
 
-	static double screenWidth = Screen.width;
-	static double screenHeight = Screen.height;
+	static double screenWidth = Util.width;
+	static double screenHeight = Util.height;
 	double cardHeight = (screenHeight * 9) / 10;
 	double cardWidth = (cardHeight * 63) / 88;
 	double cardRadius = (cardHeight) / 22;
@@ -112,7 +112,7 @@ public class JoinScreen extends Pane {
 						scaleTransition3.setOnFinished(done -> {
 							play.setDisable(false);
 							Main.changeScreen("roomScreen", false);
-							Thread thread = new Thread(new Listener("185.58.194.230", 15000, Main.playerName, false,
+							Thread thread = new Thread(new Listener(Util.ip, 15000, Main.playerName, false,
 									((Label) whiteCard.getChildren().get(0)).getText(), null, null));
 							thread.start();
 						});

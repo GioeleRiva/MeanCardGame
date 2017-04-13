@@ -5,13 +5,12 @@ import com.eg0.network.Listener;
 import javafx.animation.ScaleTransition;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
-import javafx.stage.Screen;
 import javafx.util.Duration;
 
 public class PlayScreen extends Pane {
 
-	double screenWidth = Screen.getPrimary().getVisualBounds().getWidth();
-	double screenHeight = Screen.getPrimary().getVisualBounds().getHeight();
+	static double screenWidth = Screen.width;
+	static double screenHeight = Screen.height;
 	double cardHeight = (screenHeight * 9) / 10;
 	double cardWidth = (cardHeight * 63) / 88;
 	double cardRadius = (cardHeight) / 22;
@@ -55,8 +54,8 @@ public class PlayScreen extends Pane {
 						scaleTransition3.setByY(-0.05);
 						scaleTransition3.setOnFinished(done -> {
 							try {
-								Thread thread = new Thread(new Listener("185.58.194.230", 15000, Main.playerName, true, null,
-										((Label) Main.optionsScreen.num1.getChildren().get(0)).getText(),
+								Thread thread = new Thread(new Listener("185.58.194.230", 15000, Main.playerName, true,
+										null, ((Label) Main.optionsScreen.num1.getChildren().get(0)).getText(),
 										((Label) Main.optionsScreen.num2.getChildren().get(0)).getText()));
 								thread.start();
 							} catch (Exception e) {

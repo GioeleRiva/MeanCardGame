@@ -10,22 +10,21 @@ import javafx.scene.layout.Pane;
 import javafx.scene.shape.LineTo;
 import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
-import javafx.stage.Screen;
 import javafx.util.Duration;
 
 public class Keyboard extends Pane {
 
-	static double screenWidth = Screen.getPrimary().getVisualBounds().getWidth();
-	static double screenHeight = Screen.getPrimary().getVisualBounds().getHeight();
-	static double cardHeight = (screenHeight * 9) / 10;
-	static double cardWidth = (cardHeight * 63) / 88;
-	static double cardRadius = (cardHeight) / 22;
-	static double cardBorder = (cardWidth * 13) / 126;
-	static double cardTextSize = (cardWidth * 9) / 100;
-	private double buttonSize = ((screenHeight / 2) - 20) / 3;
-	private double firstRowSize = (buttonSize * 10) + 50;
-	private double secondRowSize = (buttonSize * 9) + 45;
-	private double thirdRowSize = (buttonSize * 7) + 35;
+	static double screenWidth = Screen.width;
+	static double screenHeight = Screen.height;
+	double cardHeight = (screenHeight * 9) / 10;
+	double cardWidth = (cardHeight * 63) / 88;
+	double cardRadius = (cardHeight) / 22;
+	double cardBorder = (cardWidth * 13) / 126;
+	double cardTextSize = (cardWidth * 9) / 100;
+	double buttonSize = ((screenHeight / 2) - 20) / 3;
+	double firstRowSize = (buttonSize * 10) + 50;
+	double secondRowSize = (buttonSize * 9) + 45;
+	double thirdRowSize = (buttonSize * 7) + 35;
 
 	private boolean keyboardVisible = false;
 

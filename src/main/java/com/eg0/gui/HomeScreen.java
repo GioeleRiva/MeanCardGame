@@ -1,12 +1,11 @@
 package com.eg0.gui;
 
 import javafx.scene.layout.Pane;
-import javafx.stage.Screen;
 
 public class HomeScreen extends Pane {
 
-	double screenWidth = Screen.getPrimary().getVisualBounds().getWidth();
-	double screenHeight = Screen.getPrimary().getVisualBounds().getHeight();
+	static double screenWidth = Screen.width;
+	static double screenHeight = Screen.height;
 	double cardHeight = (screenHeight * 9) / 10;
 	double cardWidth = (cardHeight * 63) / 88;
 	double cardRadius = (cardHeight) / 22;

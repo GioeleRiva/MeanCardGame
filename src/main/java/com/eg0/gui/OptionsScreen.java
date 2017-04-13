@@ -1,13 +1,15 @@
 package com.eg0.gui;
 
+import javafx.animation.ScaleTransition;
+import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
-import javafx.stage.Screen;
+import javafx.util.Duration;
 
 public class OptionsScreen extends Pane {
 
-	double screenWidth = Screen.getPrimary().getVisualBounds().getWidth();
-	double screenHeight = Screen.getPrimary().getVisualBounds().getHeight();
+	static double screenWidth = Screen.width;
+	static double screenHeight = Screen.height;
 	double cardHeight = (screenHeight * 9) / 10;
 	double cardWidth = (cardHeight * 63) / 88;
 	double cardRadius = (cardHeight) / 22;
@@ -29,6 +31,7 @@ public class OptionsScreen extends Pane {
 		wins.setLayoutX(screenHeight * 0.05);
 		wins.setLayoutY(screenHeight * 0.05);
 		wins.setOnMouseClicked(null);
+		((Label) wins.getChildren().get(0)).setAlignment(Pos.CENTER);
 		this.getChildren().add(wins);
 		Pane back1 = new Pane();
 		back1.setPrefSize(cardBorder, 2 * cardBorder);
@@ -52,6 +55,7 @@ public class OptionsScreen extends Pane {
 		turns.setLayoutX(screenHeight * 0.05);
 		turns.setLayoutY(screenHeight * 0.1 + cardBorder * 2);
 		turns.setOnMouseClicked(null);
+		((Label) turns.getChildren().get(0)).setAlignment(Pos.CENTER);
 		this.getChildren().add(turns);
 		Pane back2 = new Pane();
 		back2.setPrefSize(cardBorder, 2 * cardBorder);
@@ -78,53 +82,115 @@ public class OptionsScreen extends Pane {
 		Label l1 = (Label) num1.getChildren().get(0);
 		Label l2 = (Label) num2.getChildren().get(0);
 		back1.setOnMouseClicked(b1 -> {
-			if (!l1.getText().equals("1") && !l1.getText().equals("-")) {
-				l1.setText(Integer.toString(Integer.valueOf(l1.getText()) - 1));
-			} else {
-				l1.setText("-");
-				l2.setText("10");
-			}
+			ScaleTransition scaleTransition1 = new ScaleTransition(Duration.millis(100), back1);
+			scaleTransition1.setByX(-0.1);
+			scaleTransition1.setByY(-0.1);
+			scaleTransition1.setOnFinished(play2 -> {
+				ScaleTransition scaleTransition2 = new ScaleTransition(Duration.millis(100), back1);
+				scaleTransition2.setByX(0.15);
+				scaleTransition2.setByY(0.15);
+				scaleTransition2.setOnFinished(play3 -> {
+					ScaleTransition scaleTransition3 = new ScaleTransition(Duration.millis(100), back1);
+					scaleTransition3.setByX(-0.05);
+					scaleTransition3.setByY(-0.05);
+					scaleTransition3.setOnFinished(done -> {
+						if (!l1.getText().equals("1") && !l1.getText().equals("-")) {
+							l1.setText(Integer.toString(Integer.valueOf(l1.getText()) - 1));
+						} else {
+							l1.setText("-");
+							l2.setText("10");
+						}
+					});
+					scaleTransition3.play();
+				});
+				scaleTransition2.play();
+			});
+			scaleTransition1.play();
 		});
 		forw1.setOnMouseClicked(f1 -> {
-			if (l1.getText().equals("-")) {
-				l1.setText(Integer.toString(1));
-				l2.setText("-");
-			} else {
-				if (!l1.getText().equals("99")) {
-					l1.setText(Integer.toString(Integer.valueOf(l1.getText()) + 1));
-				} else {
-				}
-			}
+			ScaleTransition scaleTransition1 = new ScaleTransition(Duration.millis(100), forw1);
+			scaleTransition1.setByX(-0.1);
+			scaleTransition1.setByY(-0.1);
+			scaleTransition1.setOnFinished(play2 -> {
+				ScaleTransition scaleTransition2 = new ScaleTransition(Duration.millis(100), forw1);
+				scaleTransition2.setByX(0.15);
+				scaleTransition2.setByY(0.15);
+				scaleTransition2.setOnFinished(play3 -> {
+					ScaleTransition scaleTransition3 = new ScaleTransition(Duration.millis(100), forw1);
+					scaleTransition3.setByX(-0.05);
+					scaleTransition3.setByY(-0.05);
+					scaleTransition3.setOnFinished(done -> {
+						if (l1.getText().equals("-")) {
+							l1.setText(Integer.toString(1));
+							l2.setText("-");
+						} else {
+							if (!l1.getText().equals("99")) {
+								l1.setText(Integer.toString(Integer.valueOf(l1.getText()) + 1));
+							} else {
+							}
+						}
+					});
+					scaleTransition3.play();
+				});
+				scaleTransition2.play();
+			});
+			scaleTransition1.play();
 		});
 		back2.setOnMouseClicked(b2 -> {
-			if (!l2.getText().equals("1") && !l2.getText().equals("-")) {
-				l2.setText(Integer.toString(Integer.valueOf(l2.getText()) - 1));
-			} else {
-				l2.setText("-");
-				l1.setText("10");
-			}
+			ScaleTransition scaleTransition1 = new ScaleTransition(Duration.millis(100), back2);
+			scaleTransition1.setByX(-0.1);
+			scaleTransition1.setByY(-0.1);
+			scaleTransition1.setOnFinished(play2 -> {
+				ScaleTransition scaleTransition2 = new ScaleTransition(Duration.millis(100), back2);
+				scaleTransition2.setByX(0.15);
+				scaleTransition2.setByY(0.15);
+				scaleTransition2.setOnFinished(play3 -> {
+					ScaleTransition scaleTransition3 = new ScaleTransition(Duration.millis(100), back2);
+					scaleTransition3.setByX(-0.05);
+					scaleTransition3.setByY(-0.05);
+					scaleTransition3.setOnFinished(done -> {
+						if (!l2.getText().equals("1") && !l2.getText().equals("-")) {
+							l2.setText(Integer.toString(Integer.valueOf(l2.getText()) - 1));
+						} else {
+							l2.setText("-");
+							l1.setText("10");
+						}
+					});
+					scaleTransition3.play();
+				});
+				scaleTransition2.play();
+			});
+			scaleTransition1.play();
 		});
 		forw2.setOnMouseClicked(f2 -> {
-			if (l2.getText().equals("-")) {
-				l2.setText(Integer.toString(1));
-				l1.setText("-");
-			} else {
-				if (!l2.getText().equals("99")) {
-					l2.setText(Integer.toString(Integer.valueOf(l2.getText()) + 1));
-				} else {
-				}
-			}
+			ScaleTransition scaleTransition1 = new ScaleTransition(Duration.millis(100), forw2);
+			scaleTransition1.setByX(-0.1);
+			scaleTransition1.setByY(-0.1);
+			scaleTransition1.setOnFinished(play2 -> {
+				ScaleTransition scaleTransition2 = new ScaleTransition(Duration.millis(100), forw2);
+				scaleTransition2.setByX(0.15);
+				scaleTransition2.setByY(0.15);
+				scaleTransition2.setOnFinished(play3 -> {
+					ScaleTransition scaleTransition3 = new ScaleTransition(Duration.millis(100), forw2);
+					scaleTransition3.setByX(-0.05);
+					scaleTransition3.setByY(-0.05);
+					scaleTransition3.setOnFinished(done -> {
+						if (l2.getText().equals("-")) {
+							l2.setText(Integer.toString(1));
+							l1.setText("-");
+						} else {
+							if (!l2.getText().equals("99")) {
+								l2.setText(Integer.toString(Integer.valueOf(l2.getText()) + 1));
+							} else {
+							}
+						}
+					});
+					scaleTransition3.play();
+				});
+				scaleTransition2.play();
+			});
+			scaleTransition1.play();
 		});
-
-		/*
-		 * Button turns = new Button("Options.", "homeScreen");
-		 * options.setLayoutX(screenHeight * 0.05);
-		 * options.setLayoutY(screenHeight * 0.1 + cardBorder * 2);
-		 * this.getChildren().add(options); Button rules = new Button("Rules.",
-		 * "homeScreen"); rules.setLayoutX(screenHeight * 0.05);
-		 * rules.setLayoutY(screenHeight * 0.15 + cardBorder * 4);
-		 * this.getChildren().add(rules);
-		 */
 	}
 
 }

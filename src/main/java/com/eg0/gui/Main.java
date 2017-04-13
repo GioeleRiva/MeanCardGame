@@ -11,65 +11,103 @@ import javafx.concurrent.Task;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
 public class Main extends Application {
 
-	static double screenWidth = Screen.getPrimary().getVisualBounds().getWidth();
-	static double screenHeight = Screen.getPrimary().getVisualBounds().getHeight();
+	static double screenWidth = Screen.width;
+	static double screenHeight = Screen.height;
 	static double cardHeight = (screenHeight * 9) / 10;
 	static double cardWidth = (cardHeight * 63) / 88;
 	static double cardRadius = (cardHeight) / 22;
 	static double cardBorder = (cardWidth * 13) / 126;
 	static double cardTextSize = (cardWidth * 9) / 100;
 
-	public static StackPane stackPane;
-	public static HomeScreen homeScreen;
-	public static OptionsScreen optionsScreen;
-	public static NameScreen nameScreen;
-	public static PlayScreen playScreen;
-	public static JoinScreen joinScreen;
+	static StackPane stackPane;
+	static HomeScreen homeScreen;
+	static OptionsScreen optionsScreen;
+	static NameScreen nameScreen;
+	static PlayScreen playScreen;
+	static JoinScreen joinScreen;
 	public static RoomScreen roomScreen;
 	public static GameScreen gameScreen;
 	public static PickScreen pickScreen;
 	public static WinScreen winScreen;
 	public static EndScreen endScreen;
 
-	public static boolean somethingSelected = false;
+	static boolean somethingSelected = false;
 
-	public static String playerName = "";
+	static String playerName = "";
 	public static String roomCode = "";
 
-	public static ArrayList<Player> players = new ArrayList<>();
+	static ArrayList<Player> players = new ArrayList<>();
 	public static ArrayList<Card> whiteCards = new ArrayList<>();
 
 	@Override
 	public void start(Stage stage) {
 		stackPane = new StackPane();
 		stackPane.getStylesheets().add("/Style.css");
-		endScreen = new EndScreen();
-		stackPane.getChildren().add(endScreen);
-		winScreen = new WinScreen();
-		stackPane.getChildren().add(winScreen);
-		pickScreen = new PickScreen();
-		stackPane.getChildren().add(pickScreen);
-		gameScreen = new GameScreen();
-		stackPane.getChildren().add(gameScreen);
-		roomScreen = new RoomScreen();
-		stackPane.getChildren().add(roomScreen);
-		joinScreen = new JoinScreen();
-		stackPane.getChildren().add(joinScreen);
-		playScreen = new PlayScreen();
-		stackPane.getChildren().add(playScreen);
-		nameScreen = new NameScreen();
-		stackPane.getChildren().add(nameScreen);
-		optionsScreen = new OptionsScreen();
-		stackPane.getChildren().add(optionsScreen);
-		homeScreen = new HomeScreen();
-		stackPane.getChildren().add(homeScreen);
-
+		Pane splashImage = new Pane();
+		splashImage.setPrefSize(screenWidth, screenHeight);
+		splashImage.setLayoutX(0);
+		splashImage.setLayoutY(0);
+		splashImage.setId("splashimage");
+		stackPane.getChildren().add(splashImage);
+		Task<Void> task = new Task<Void>() {
+			@Override
+			protected Void call() throws Exception {
+				return null;
+			}
+		};
+		task.setOnSucceeded(addAll -> {
+			endScreen = new EndScreen();
+			stackPane.getChildren().add(endScreen);
+			splashImage.toFront();
+			winScreen = new WinScreen();
+			stackPane.getChildren().add(winScreen);
+			splashImage.toFront();
+			pickScreen = new PickScreen();
+			stackPane.getChildren().add(pickScreen);
+			splashImage.toFront();
+			gameScreen = new GameScreen();
+			stackPane.getChildren().add(gameScreen);
+			splashImage.toFront();
+			roomScreen = new RoomScreen();
+			stackPane.getChildren().add(roomScreen);
+			splashImage.toFront();
+			joinScreen = new JoinScreen();
+			stackPane.getChildren().add(joinScreen);
+			splashImage.toFront();
+			playScreen = new PlayScreen();
+			stackPane.getChildren().add(playScreen);
+			splashImage.toFront();
+			nameScreen = new NameScreen();
+			stackPane.getChildren().add(nameScreen);
+			splashImage.toFront();
+			optionsScreen = new OptionsScreen();
+			stackPane.getChildren().add(optionsScreen);
+			splashImage.toFront();
+			homeScreen = new HomeScreen();
+			stackPane.getChildren().add(homeScreen);
+			splashImage.toFront();
+		});
+		FadeTransition fadeTransition = new FadeTransition(Duration.millis(1000), splashImage);
+		fadeTransition.setFromValue(1.0);
+		fadeTransition.setToValue(1.0);
+		fadeTransition.setOnFinished(event -> {
+			Thread thread = new Thread(task);
+			thread.setDaemon(true);
+			thread.start();
+			FadeTransition doneFadeTransition = new FadeTransition(Duration.millis(1000), splashImage);
+			doneFadeTransition.setFromValue(1.0);
+			doneFadeTransition.setToValue(0.0);
+			doneFadeTransition.setOnFinished(done -> {
+				stackPane.getChildren().remove(splashImage);
+			});
+			doneFadeTransition.play();
+		});
+		fadeTransition.play();
 		Scene scene = new Scene(stackPane);
 		stage.setScene(scene);
 		stage.show();

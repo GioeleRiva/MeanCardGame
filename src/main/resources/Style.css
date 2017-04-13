@@ -3,6 +3,12 @@
     src: url('Helvetica.ttf');
 }
 
+#splashimage{
+	-fx-background-color: #191919;
+	-fx-background-image: url("SplashImage.png");
+	-fx-background-size: contain;
+}
+
 #black{
 	-fx-background-color: black;
 }
@@ -20,12 +26,6 @@
 #backgroundimage{
 	-fx-background-image: url("BackgroundImage.png");
 	-fx-background-size: cover;
-}
-
-#splashimage{
-	-fx-background-color: #191919;
-	-fx-background-image: url("SplashImage.png");
-	-fx-background-size: contain;
 }
 
 #button{

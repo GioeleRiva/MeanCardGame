@@ -5,17 +5,16 @@ import com.eg0.network.Card;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
-import javafx.stage.Screen;
 
 public class CardPane extends Pane {
 
-	static double screenWidth = Screen.getPrimary().getVisualBounds().getWidth();
-	static double screenHeight = Screen.getPrimary().getVisualBounds().getHeight();
-	static double cardHeight = (screenHeight * 9) / 10;
-	static double cardWidth = (cardHeight * 63) / 88;
-	static double cardRadius = (cardHeight) / 22;
-	static double cardBorder = (cardWidth * 13) / 126;
-	static double cardTextSize = (cardWidth * 9) / 100;
+	static double screenWidth = Screen.width;
+	static double screenHeight = Screen.height;
+	double cardHeight = (screenHeight * 9) / 10;
+	double cardWidth = (cardHeight * 63) / 88;
+	double cardRadius = (cardHeight) / 22;
+	double cardBorder = (cardWidth * 13) / 126;
+	double cardTextSize = (cardWidth * 9) / 100;
 
 	public CardPane(Card card) {
 		this.setPrefSize(cardWidth, cardHeight);
